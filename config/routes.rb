@@ -1,4 +1,10 @@
 Aehalo::Application.routes.draw do
+  resources :blueprints
+
+
+  resources :notes
+
+
   resources :participants
 
 

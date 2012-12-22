@@ -1,0 +1,83 @@
+class BlueprintsController < ApplicationController
+  # GET /blueprints
+  # GET /blueprints.json
+  def index
+    @blueprints = Blueprint.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @blueprints }
+    end
+  end
+
+  # GET /blueprints/1
+  # GET /blueprints/1.json
+  def show
+    @blueprint = Blueprint.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @blueprint }
+    end
+  end
+
+  # GET /blueprints/new
+  # GET /blueprints/new.json
+  def new
+    @blueprint = Blueprint.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @blueprint }
+    end
+  end
+
+  # GET /blueprints/1/edit
+  def edit
+    @blueprint = Blueprint.find(params[:id])
+  end
+
+  # POST /blueprints
+  # POST /blueprints.json
+  def create
+    @blueprint = Blueprint.new(params[:blueprint])
+
+    respond_to do |format|
+      if @blueprint.save
+        format.html { redirect_to @blueprint, notice: 'Blueprint was successfully created.' }
+        format.json { render json: @blueprint, status: :created, location: @blueprint }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @blueprint.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /blueprints/1
+  # PUT /blueprints/1.json
+  def update
+    @blueprint = Blueprint.find(params[:id])
+
+    respond_to do |format|
+      if @blueprint.update_attributes(params[:blueprint])
+        format.html { redirect_to @blueprint, notice: 'Blueprint was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @blueprint.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /blueprints/1
+  # DELETE /blueprints/1.json
+  def destroy
+    @blueprint = Blueprint.find(params[:id])
+    @blueprint.destroy
+
+    respond_to do |format|
+      format.html { redirect_to blueprints_url }
+      format.json { head :no_content }
+    end
+  end
+end

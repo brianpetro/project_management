@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @blueprint.id %>
+</p>
+
+<p>
+  <b>Loc:</b>
+  <%= @blueprint.loc %>
+</p>
+
+
+<%= link_to 'Edit', edit_blueprint_path(@blueprint) %> |
+<%= link_to 'Back', blueprints_path %>
