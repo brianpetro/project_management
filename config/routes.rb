@@ -1,4 +1,10 @@
 Aehalo::Application.routes.draw do
+  resources :participants
+
+
+  resources :projects
+
+
   mount StripeEvent::Engine => '/stripe'
   get "content/gold"
   get "content/silver"
