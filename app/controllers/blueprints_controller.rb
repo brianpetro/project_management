@@ -1,8 +1,13 @@
 class BlueprintsController < ApplicationController
+  before_filter :get_project
+  
+  def get_project
+    @project = Project.find(params[:project_id])
+  end
   # GET /blueprints
   # GET /blueprints.json
   def index
-    @blueprints = Blueprint.all
+    @blueprints = @project.blueprints
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class BlueprintsController < ApplicationController
   # GET /blueprints/1
   # GET /blueprints/1.json
   def show
-    @blueprint = Blueprint.find(params[:id])
+    @blueprint = @project.blueprints.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,12 +45,13 @@ class BlueprintsController < ApplicationController
   # POST /blueprints
   # POST /blueprints.json
   def create
-    @blueprint = Blueprint.new(params[:blueprint])
+    @blueprint = @project.blueprints.new(params[:blueprint])
 
     respond_to do |format|
       if @blueprint.save
-        format.html { redirect_to @blueprint, notice: 'Blueprint was successfully created.' }
-        format.json { render json: @blueprint, status: :created, location: @blueprint }
+        format.html { redirect_to [@project, @blueprint], notice: 'Blueprint was successfully created.' }
+        format.json { render json: [@project, @blueprint], status: :created,
+				 location: [@project, @blueprint] }
       else
         format.html { render action: "new" }
         format.json { render json: @blueprint.errors, status: :unprocessable_entity }
@@ -60,7 +66,7 @@ class BlueprintsController < ApplicationController
 
     respond_to do |format|
       if @blueprint.update_attributes(params[:blueprint])
-        format.html { redirect_to @blueprint, notice: 'Blueprint was successfully updated.' }
+        format.html { redirect_to [@project, @blueprint], notice: 'Blueprint was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

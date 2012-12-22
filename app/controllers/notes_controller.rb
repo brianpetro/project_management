@@ -1,8 +1,14 @@
 class NotesController < ApplicationController
+  before_filter :get_project
+  
+  def get_project
+    @project = Project.find(params[:project_id])
+  end
+
   # GET /notes
   # GET /notes.json
   def index
-    @notes = Note.all
+    @notes = @project.notes
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +19,7 @@ class NotesController < ApplicationController
   # GET /notes/1
   # GET /notes/1.json
   def show
-    @note = Note.find(params[:id])
+    @note = @project.notes.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,12 +46,13 @@ class NotesController < ApplicationController
   # POST /notes
   # POST /notes.json
   def create
-    @note = Note.new(params[:note])
+    @note = @project.notes.new(params[:note])
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
-        format.json { render json: @note, status: :created, location: @note }
+        format.html { redirect_to [@project, @note], notice: 'Note was successfully created.' }
+        format.json { render json: [@project, @note], status: :created,
+			 location: [@project, @note] }
       else
         format.html { render action: "new" }
         format.json { render json: @note.errors, status: :unprocessable_entity }
@@ -60,7 +67,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
-        format.html { redirect_to @note, notice: 'Note was successfully updated.' }
+        format.html { redirect_to [@project, @note], notice: 'Note was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

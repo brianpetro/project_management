@@ -1,9 +1,10 @@
-<%= simple_form_for(@blueprint) do |f| %>
+<%= simple_form_for [@project, @blueprint] do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :id %>
     <%= f.input :loc %>
+    <%= f.input :project_id %>
   </div>
 
   <div class="form-actions">
