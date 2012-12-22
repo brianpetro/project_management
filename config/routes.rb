@@ -1,4 +1,7 @@
 Aehalo::Application.routes.draw do
+  resources :coordinates
+
+
   resources :projects do
     resources :blueprints
     resources :notes
