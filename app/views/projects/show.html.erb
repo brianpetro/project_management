@@ -26,7 +26,20 @@
       <tr>
         <td><%= link_to blueprint.id, [@project, blueprint] %></td>
 	<td><%= link_to 'Open', blueprint.loc, :class => 'btn' %></td>
+        <td><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></td>
       <tr>
+      <div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel"><%= blueprint.id %></h3>
+        </div>
+        <div class="modal-body">
+          <img src="<%= blueprint.loc %>" />
+        </div>
+        <div class="modal-footer">
+           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
     <% end %>
   </tbody>
 </table>
@@ -47,3 +60,5 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+
