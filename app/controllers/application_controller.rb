@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
       when 'admin'
         users_path
       when 'silver'
-        content_silver_path
+        user_path(current_user.id)
       when 'gold'
-        content_gold_path
+        user_path(current_user.id)
       when 'platinum'
         content_platinum_path
       else
