@@ -12,6 +12,7 @@
 
 <ol>
   <strong>Participants:</strong>
+  <%= link_to 'Add Participant', new_participant_path %>
   <% @project.users.each do |user| %>
     <li><%= user.name %></li>
   <% end %>
