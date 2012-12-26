@@ -2,17 +2,20 @@
 <p>User: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <td><h2>My Projects</h2><%= link_to 'New Project', new_project_path, :class => 'btn' %></td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @user.projects.each do |p| %>
+
+<% if current_user.id == @user.id %>
+  <table class="table table-striped">
+    <thead>
       <tr>
-	<td><%= link_to p.name, project_path %></td>
+        <td><h2>My Projects</h2><%= link_to 'New Project', new_project_path, :class => 'btn' %></td>
       </tr>
-    <% end %>
-  <tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @user.projects.each do |p| %>
+        <tr>
+	  <td><%= link_to p.name, project_path %></td>
+        </tr>
+      <% end %>
+    <tbody>
+  </table>
+<% end %>
