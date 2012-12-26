@@ -15,6 +15,11 @@ class User < ActiveRecord::Base
   has_many :participants
   has_many :projects, :through => :participants
 
+  # This only allows users participating in a project to view an entire project (Upgrade for Sec.)
+  def is_participant?(participant)
+    self.participants.exists?(:project_id => participant)
+  end
+
   def update_plan(role)
     self.role_ids = []
     self.add_role(role.name)
