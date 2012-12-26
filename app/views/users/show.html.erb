@@ -13,7 +13,7 @@
     <tbody>
       <% @user.projects.each do |p| %>
         <tr>
-	  <td><%= link_to p.name, project_path %></td>
+	  <td><%= link_to p.name, project_path(p) %></td>
         </tr>
       <% end %>
     <tbody>
