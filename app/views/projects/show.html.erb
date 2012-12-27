@@ -7,7 +7,8 @@
 
 <p>
   <b>Name:</b>
-  <%= @project.name %>
+  <%= @project.name %><br>
+  <%= link_to 'Edit', edit_project_path(@project) %>
 </p>
 
 <!-- Begin visible to project participants only, NEEDS request to participate in ELSE -->
@@ -61,7 +62,7 @@
     </tbody>
   </table>
 
-  <%= link_to 'Edit', edit_project_path(@project) %> |
+  
   <%= link_to 'Back', projects_path %>
 
 <% end %> <!-- End project participant only -->
