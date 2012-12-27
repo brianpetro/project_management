@@ -8,7 +8,7 @@
   <%= f.fields_for :coordinates do |builder| %>
     <div class="form-inputs">
       <%= builder.label :blueprint_id, "Blueprint Association" %>
-      <%= builder.collection_select(:blueprint_id, @project.blueprints, :id, :id, {:include_blank => 'None'}) %>
+      <%= builder.collection_select :blueprint_id, @project.blueprints, :id, :id, {:include_blank => 'None', :selected => params[:blueprint_id]} %>
     </div>
   <% end %>
   <div class="form-actions">
