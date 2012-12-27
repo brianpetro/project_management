@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   before_destroy :cancel_subscription
 
   has_many :participants
-  has_many :projects, :through => :participants
+  has_many :projects, :through => :participants, :uniq => true
 
   # This only allows users participating in a project to view an entire project (Upgrade for Sec.)
   def is_participant?(participant)

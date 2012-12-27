@@ -5,9 +5,9 @@ Aehalo::Application.routes.draw do
   resources :projects do
     resources :blueprints
     resources :notes
+    resources :participants
   end
 
-  resources :participants
 
 
   mount StripeEvent::Engine => '/stripe'
