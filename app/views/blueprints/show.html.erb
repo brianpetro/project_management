@@ -17,7 +17,7 @@
 
 
 <table class="table table-hover table-bordered">
-  <thead><tr><td><strong>Notes:</strong></td></tr></head>
+  <thead><tr><td><strong>Notes:</strong><%= link_to 'Add Note', new_project_note_path(@project, :blueprint_id => @blueprint.id), :class => 'btn' %></td></tr></head>
   <tbody>
     <% @blueprint.coordinates.each do |coordinate| %>
       <tr>
