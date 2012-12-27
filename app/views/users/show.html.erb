@@ -1,21 +1,28 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<div class="row-fluid">
+	<div class="span8">	
+		<h3><%= @user.name %></h3>
+		<% if current_user.id == @user.id %>
+			<p>Email: <%= @user.email if @user.email %></p>
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+				    <td><h2>My Projects</h2><%= link_to 'New Project', new_project_path, :class => 'btn' %></td>
+				  </tr>
+				</thead>
+				<tbody>
+				  <% @user.projects.each do |p| %>
+				    <tr>
+				<td><%= link_to p.name, project_path(p) %></td>
+				    </tr>
+				  <% end %>
+				<tbody>
+			</table>
+		<% end %>
+	</div>
 
+<!-- In sidebar partial -->
+  <div class="span4">
+    <%= render "sidebar" %>
+  </div>
 
-<% if current_user.id == @user.id %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <td><h2>My Projects</h2><%= link_to 'New Project', new_project_path, :class => 'btn' %></td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.projects.each do |p| %>
-        <tr>
-	  <td><%= link_to p.name, project_path(p) %></td>
-        </tr>
-      <% end %>
-    <tbody>
-  </table>
-<% end %>
+</div>

@@ -1,68 +1,69 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="span8">
+		<p id="notice"><%= notice %></p>	
+			
+		<h3><%= @project.name %><%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-mini' %></h3>
+		
 
-<p>
-  <b>Id:</b>
-  <%= @project.id %>
-</p>
+		<!-- Begin visible to project participants only, NEEDS request to participate in ELSE -->
+		<% if current_user.is_participant?(@project.id) %>
+			<div id="participant-list">
+				<strong>Participants:</strong>
+				<%= link_to 'Add Participant', new_project_participant_path(@project), :class => 'btn btn-small' %>
+		    <ol>
+					<% @project.users.each do |user| %>
+						<li><%= link_to user.name, user_path(user.id) %></li>
+					<% end %>
+				</ol>
+			</div>
+			<table class="table table-hover table-bordered">
+				<thead>
+				  <tr><td><strong>Blueprints</strong><%= link_to 'Add Drawing', new_project_blueprint_path(@project), :class => 'btn btn-small' %></td></tr>
+				</thead>
+				<tbody>
+				  <% @project.blueprints.each do |blueprint| %>
+				    <tr>
+				      <td><%= link_to blueprint.id, [@project, blueprint] %></td>
+				<td><%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), :class => 'btn' %></td>
+				      <td><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></td>
+				    <tr>
+				    <div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				        <h3 id="myModalLabel"><%= blueprint.id %></h3>
+				      </div>
+				      <div class="modal-body">
+				        <img src="<%= blueprint.loc %>" />
+				      </div>
+				      <div class="modal-footer">
+				        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				      </div>
+				    </div>
+				  <% end %>
+				</tbody>
+			</table>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %><br>
-  <%= link_to 'Edit', edit_project_path(@project) %>
-</p>
+			<table class="table table-hover table-bordered">
+				<thead>
+				  <tr><td><strong>Notes</strong><%= link_to 'Add Note', new_project_note_path(@project), :class => 'btn btn-small' %></td></tr>
+				</thead>
+				<tbody>
+				  <% @project.notes.each do |note| %>
+				    <tr>
+				      <td><%= note.note %></td>
+				<td><%= link_to 'Open', [@project, note], :class => 'btn' %></td>
+				    <tr>
+				  <% end %>
+				</tbody>
+			</table>
 
-<!-- Begin visible to project participants only, NEEDS request to participate in ELSE -->
-<% if current_user.is_participant?(@project.id) %>
-  <ol>
-    <strong>Participants:</strong>
-    <%= link_to 'Add Participant', new_project_participant_path(@project) %>
-    <% @project.users.each do |user| %>
-      <li><%= user.name %></li>
-    <% end %>
-  </ol>
+		
+			<%= link_to 'Back', projects_path %>
 
-  <table class="table table-hover table-bordered">
-    <thead>
-      <tr><td><strong>Blueprints</strong><%= link_to 'Add Drawing', new_project_blueprint_path(@project), :class => 'btn' %></td></tr>
-    </thead>
-    <tbody>
-      <% @project.blueprints.each do |blueprint| %>
-        <tr>
-          <td><%= link_to blueprint.id, [@project, blueprint] %></td>
-	  <td><%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), :class => 'btn' %></td>
-          <td><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></td>
-        <tr>
-        <div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel"><%= blueprint.id %></h3>
-          </div>
-          <div class="modal-body">
-            <img src="<%= blueprint.loc %>" />
-          </div>
-          <div class="modal-footer">
-            <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-          </div>
-        </div>
-      <% end %>
-    </tbody>
-  </table>
+		<% end %> <!-- End project participant only -->
+  </div>
 
-  <table class="table table-hover table-bordered">
-    <thead>
-      <tr><td><strong>Notes</strong><%= link_to 'Add Note', new_project_note_path(@project), :class => 'btn' %></td></tr>
-    </thead>
-    <tbody>
-      <% @project.notes.each do |note| %>
-        <tr>
-          <td><%= note.note %></td>
-	  <td><%= link_to 'Open', [@project, note], :class => 'btn' %></td>
-        <tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  
-  <%= link_to 'Back', projects_path %>
-
-<% end %> <!-- End project participant only -->
+	<div class="span4">
+		<%= render 'sidebar' %>
+	</div>
+</div>
