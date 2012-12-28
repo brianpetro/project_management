@@ -13,6 +13,7 @@
   <tr>
     <td><%= blueprint.id %></td>
     <td><%= blueprint.loc %></td>
+		<td><%= blueprint.bpu %></td>
     <td><%= link_to 'Show', [@project, blueprint] %></td>
     <td><%= link_to 'Edit', edit_project_blueprint_path(@project, blueprint) %></td>
     <td><%= link_to 'Destroy', [@project, blueprint], method: :delete, data: { confirm: 'Are you sure?' } %></td>
