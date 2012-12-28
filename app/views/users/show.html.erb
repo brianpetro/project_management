@@ -3,6 +3,10 @@
 		<h3><%= @user.name %></h3>
 		<% if current_user.id == @user.id %>
 			<p>Email: <%= @user.email if @user.email %></p>
+			<% @user.cities.each do |c| %>
+			  <p>Reviewer at: <%= link_to c.name, city_path(c) %></p>
+			<% end %>
+
 			<table class="table table-striped">
 				<thead>
 				  <tr>
@@ -12,7 +16,7 @@
 				<tbody>
 				  <% @user.projects.each do |p| %>
 				    <tr>
-				<td><%= link_to p.name, project_path(p) %></td>
+							<td><%= link_to p.name, project_path(p) %></td>
 				    </tr>
 				  <% end %>
 				<tbody>

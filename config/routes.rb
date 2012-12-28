@@ -1,6 +1,10 @@
 Aehalo::Application.routes.draw do
-  resources :cities
 
+
+
+  resources :cities do
+  	resources :reviewers
+	end
 
   resources :coordinates
 

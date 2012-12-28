@@ -1,10 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+	<div class="span8">
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Project:</b>
-  <%= @city.name %>
-</p>
+		<p>
+			<b>Project:</b>
+			<%= @city.name %>
+		</p>
+		<p>
+			<b>Reviewers:</b>
+			<ul>
+				<% @city.users.each do |user| %>
+					<li><%= user.name %></li>
+				<% end %>
+			</ul>
+		</p>
 
 
-<%= link_to 'Edit', edit_city_path(@city) %> |
-<%= link_to 'Back', cities_path %>
+		<%= link_to 'Edit', edit_city_path(@city) %> |
+		<%= link_to 'Back', cities_path %>
+	</div>
+	<div class="span4">
+		<h3>City Page</h3>
+		<ul>		
+			<li>First city reviewer verified and added internally by A&E Halo.</li>
+			<li>City reviewers have the ability to add more users.</li>
+			<li>Users can begin submission to city from this page.</li>
+			<li>Cities can browse submitted projects from this page.</li>
+		</ul>
+	</div>
+</div>

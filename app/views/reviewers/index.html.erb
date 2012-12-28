@@ -1,0 +1,25 @@
+<h1>Listing reviewers</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>City</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reviewers.each do |reviewer| %>
+  <tr>
+    <td><%= reviewer.user_id %></td>
+    <td><%= reviewer.city_id %></td>
+    <td><%= link_to 'Show', [@city, reviewer] %></td>
+    <td><%= link_to 'Edit', edit_city_reviewer_path(@city, reviewer) %></td>
+    <td><%= link_to 'Destroy', [@city, reviewer], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reviewer', new_city_reviewer_path %>
