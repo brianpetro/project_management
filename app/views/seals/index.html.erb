@@ -13,13 +13,13 @@
   <tr>
     <td><%= seal.project_id %></td>
     <td><%= seal.city_id %></td>
-    <td><%= link_to 'Show', seal %></td>
-    <td><%= link_to 'Edit', edit_seal_path(seal) %></td>
-    <td><%= link_to 'Destroy', seal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@city, seal] %></td>
+    <td><%= link_to 'Edit', edit_city_seal_path(@city, seal) %></td>
+    <td><%= link_to 'Destroy', [@city, seal], method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Seal', new_seal_path %>
+<%= link_to 'New Seal', new_city_seal_path %>

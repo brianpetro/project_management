@@ -10,6 +10,7 @@
   <%= @seal.city_id %>
 </p>
 
+<%= link_to 'Open Project', project_path(@seal.project_id), :class => 'btn' %><br>
 
-<%= link_to 'Edit', edit_seal_path(@seal) %> |
-<%= link_to 'Back', seals_path %>
+<%= link_to 'Edit', edit_city_seal_path(@city,@seal) %> |
+<%= link_to 'Back', city_seals_path %>

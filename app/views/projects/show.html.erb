@@ -1,19 +1,13 @@
 <div class="row">
-  <div class="span8">
 		<p id="notice"><%= notice %></p>	
 			
 		<h3><%= @project.name %><%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-mini' %></h3>
-
-
+		<% if current_user.is_reviewer_of_project?(@project.id) %>
+			<%= render 'review' %>
+		<% end %>
 		<!-- Begin visible to project participants only, NEEDS request to participate in ELSE -->
 		<% if current_user.is_participant?(@project.id) %>
-			
 			<%= render 'participant' %>
-
 		<% end %> <!-- End project participant only -->
-  </div>
 
-	<div class="span4">
-		<%= render 'sidebar' %>
-	</div>
 </div>

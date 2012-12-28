@@ -1,7 +1,6 @@
 <div class="row-fluid">
 	<div class="span8">
 		<p id="notice"><%= notice %></p>
-
 		<p>
 			<b>Project:</b>
 			<%= @city.name %>
@@ -15,10 +14,27 @@
 			</ul>
 		</p>
 
-
-		<%= link_to 'Edit', edit_city_path(@city) %> |
-		<%= link_to 'Back', cities_path %>
+		<!-- Begin Reviewer only project table -->
+		<% if current_user.is_reviewer_of_city?(@city.id) %>
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<td><strong>Submitted Projects</strong></td>
+						<td><strong>Submitted Date</strong></td>
+					</tr>
+				</thead>
+				<tbody>
+					<% @city.projects.each do |p| %>
+					<tr>
+						<td><%= link_to p.name, project_path(p.id) %></td>
+						<td><%= p.created_at %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		<% end %>
 	</div>
+
 	<div class="span4">
 		<h3>City Page</h3>
 		<ul>		
@@ -29,3 +45,6 @@
 		</ul>
 	</div>
 </div>
+
+<%= link_to 'Edit', edit_city_path(@city) %> |
+<%= link_to 'Back', cities_path %>

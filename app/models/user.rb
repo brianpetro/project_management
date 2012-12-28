@@ -16,14 +16,20 @@ class User < ActiveRecord::Base
   has_many :projects, :through => :participants, :uniq => true
 	has_many :reviewers
 	has_many :cities, :through => :reviewers
+	has_many :seals, :through => :cities
 
   # This only allows users participating in a project to view an entire project (Upgrade for Sec.)
-  def is_participant?(participant)
-    self.participants.exists?(:project_id => participant)
+  def is_participant?(project_id)
+    self.participants.exists?(:project_id => project_id)
   end
 
+	def is_reviewer_of_project?(project_id)
+		self.seals.exists?(:project_id => project_id)
+	end
 
-
+	def is_reviewer_of_city?(city_id)
+		self.reviewers.exists?(:city_id => city_id)
+	end
 
   def update_plan(role)
     self.role_ids = []

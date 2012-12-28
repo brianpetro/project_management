@@ -1,8 +1,13 @@
 class SealsController < ApplicationController
+	before_filter :get_city
+
+	def get_city
+		@city = City.find(params[:city_id])
+	end
   # GET /seals
   # GET /seals.json
   def index
-    @seals = Seal.all
+    @seals = @city.seals
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class SealsController < ApplicationController
   # GET /seals/1
   # GET /seals/1.json
   def show
-    @seal = Seal.find(params[:id])
+    @seal = @city.seals.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,8 +49,8 @@ class SealsController < ApplicationController
 
     respond_to do |format|
       if @seal.save
-        format.html { redirect_to @seal, notice: 'Seal was successfully created.' }
-        format.json { render json: @seal, status: :created, location: @seal }
+        format.html { redirect_to [@city, @seal], notice: 'Seal was successfully created.' }
+        format.json { render json: [@city, @seal], status: :created, location: [@city, @seal] }
       else
         format.html { render action: "new" }
         format.json { render json: @seal.errors, status: :unprocessable_entity }
@@ -60,7 +65,7 @@ class SealsController < ApplicationController
 
     respond_to do |format|
       if @seal.update_attributes(params[:seal])
-        format.html { redirect_to @seal, notice: 'Seal was successfully updated.' }
+        format.html { redirect_to [@city, @seal], notice: 'Seal was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

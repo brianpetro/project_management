@@ -1,0 +1,10 @@
+<h4>Project Page (PARTICIPANT)</h4>
+<ul>
+	<li>This page acts as a hub for all aspects of a project.</li>
+  <li>Any user participating in a project is capable of using this page</li>
+	<li><strong>Add Drawing</strong> capability. Uploads digital blueprint to project.</li>
+  <li><strong>Add Note</strong> capability. Project or blueprint specific.</li>
+</ul>
+<% if current_user.is_participant?(@project.id) %>
+	<%= link_to 'Review Material', project_notes_path(@project), :class => 'btn' %>
+<% end %>
