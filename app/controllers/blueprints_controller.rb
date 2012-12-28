@@ -78,11 +78,11 @@ class BlueprintsController < ApplicationController
   # DELETE /blueprints/1
   # DELETE /blueprints/1.json
   def destroy
-    @blueprint = Blueprint.find(params[:id])
+    @blueprint = @project.blueprints.find(params[:id])
     @blueprint.destroy
 
     respond_to do |format|
-      format.html { redirect_to blueprints_url }
+      format.html { redirect_to project_blueprints_url }
       format.json { head :no_content }
     end
   end

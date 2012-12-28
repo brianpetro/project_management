@@ -1,5 +1,11 @@
 <%= form_for [@project, @blueprint] do |f| %>
 
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</p>
+
+
   <p>
 
     <%= f.file_field :bpu %>

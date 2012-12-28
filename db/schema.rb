@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228030744) do
+ActiveRecord::Schema.define(:version => 20121228160829) do
 
   create_table "blueprints", :force => true do |t|
     t.string   "loc"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20121228030744) do
     t.datetime "updated_at", :null => false
     t.integer  "project_id"
     t.string   "bpu"
+    t.string   "title"
   end
 
   create_table "coordinates", :force => true do |t|
