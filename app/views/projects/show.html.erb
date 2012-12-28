@@ -3,7 +3,6 @@
 		<p id="notice"><%= notice %></p>	
 			
 		<h3><%= @project.name %><%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-mini' %></h3>
-		<p>Municipality: <% if @project.city %><%= @project.city.user_ckey %><% else %><%= link_to 'Add City', new_city_path %><% end %></p>
 
 
 		<!-- Begin visible to project participants only, NEEDS request to participate in ELSE -->
