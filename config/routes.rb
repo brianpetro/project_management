@@ -2,6 +2,9 @@ Aehalo::Application.routes.draw do
 
 
 
+  resources :seals
+
+
   resources :cities do
   	resources :reviewers
 	end
