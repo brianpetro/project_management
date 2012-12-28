@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  attr_accessible :id, :note, :project_id, :coordinates_attributes
+  attr_accessible :id, :note, :project_id, :coordinates_attributes, :note_text
   belongs_to :project
   has_many :coordinates, :dependent => :destroy
   accepts_nested_attributes_for :coordinates

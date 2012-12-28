@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121227235858) do
+ActiveRecord::Schema.define(:version => 20121228003729) do
 
   create_table "blueprints", :force => true do |t|
     t.string   "loc"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20121227235858) do
     t.datetime "updated_at", :null => false
     t.integer  "project_id"
     t.integer  "position"
+    t.text     "note_text"
   end
 
   create_table "participants", :force => true do |t|

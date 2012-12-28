@@ -1,17 +1,30 @@
-<h1>Listing notes</h1>
+<div class="row-fluid">
+	<div class="span8">
+		<h1>Listing notes</h1>
 
-<ul id="notes" data-update-url="<%= sort_project_notes_url %>">
-	<% @notes.each do |note| %>
-    <%= content_tag_for :li, note do %>
-			<span class="handle">[sort]</span>
-			<%= note.note %>
-			<% note.coordinates.each do |c| %><%= c.blueprint_id %><% end %>
-			<%= link_to 'Show', [@project, note] %>
-		<% end %>
-	<% end %> 
-</ul>
+		<ul id="notes" data-update-url="<%= sort_project_notes_url %>">
+			<% @notes.each do |note| %>
+				<%= content_tag_for :li, note do %>
+					<span class="handle">[sort]</span>
+					<% note.coordinates.each do |c| %>
+						<% if c.blueprint_id %>
+							<%= link_to c.blueprint_id, project_blueprint_path(note.project_id, c.blueprint_id, :note_id => note.id), :class => 'btn btn-mini' %>
+						<% else %>
+							<!-- Add something for notes with project only association. -->
+						<% end %>
+					<% end %>
+					<strong><%= link_to truncate(note.note, :length => 100), [@project, note] %></strong> <br>
+					<%= truncate note.note_text, :length => 200 %>
+				<% end %>
+			<% end %> 
+		</ul>
 
 
-<br />
+		<br />
 
-<%= link_to 'New Note', new_project_note_path %>
+		<%= link_to 'New Note', new_project_note_path %>
+	</div>
+	<div class="span4">
+		<%= render 'sidebar' %>
+	</div>
+</div>

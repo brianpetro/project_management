@@ -2,8 +2,12 @@
 
 
   <div class="form-inputs">
-    <%= f.label :note %>
+    <%= f.label 'Note Description' %>
     <%= f.text_field :note %>
+  </div>
+  <div class="form-inputs">
+    <%= f.label :note_text %>
+    <%= f.text_area :note_text %>
   </div>
   <%= f.fields_for :coordinates do |builder| %>
     <div class="form-inputs">

@@ -45,14 +45,14 @@
 
 			<table class="table table-hover table-bordered">
 				<thead>
-				  <tr><td><strong>Notes</strong><%= link_to 'Add Note', new_project_note_path(@project), :class => 'btn btn-small' %></td></tr>
+				  <tr><td><strong><%= link_to'Notes', project_notes_path(@project) %></strong><%= link_to 'Add Note', new_project_note_path(@project), :class => 'btn btn-small' %></td></tr>
 				</thead>
 				<tbody>
 				  <% @project.notes.each do |note| %>
 				    <tr>
-				      <td><%= note.note %></td>
-				<td><%= link_to 'Open', [@project, note], :class => 'btn' %></td>
-				    <tr>
+				      <td><%= truncate note.note, :length => 60 %></td>
+							<td><%= link_to 'Open', [@project, note], :class => 'btn' %></td>
+				    </tr>
 				  <% end %>
 				</tbody>
 			</table>

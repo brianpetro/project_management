@@ -20,7 +20,7 @@
   <thead><tr><td><strong>Notes:</strong><%= link_to 'Add Note', new_project_note_path(@project, :blueprint_id => @blueprint.id), :class => 'btn' %></td></tr></head>
   <tbody>
     <% @blueprint.coordinates.each do |coordinate| %>
-      <tr>
+      <tr id="note_<%= coordinate.note.id %>">
         <td><%= coordinate.note.note %></td>
       </tr>
     <% end %>
