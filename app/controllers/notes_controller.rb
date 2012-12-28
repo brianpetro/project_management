@@ -8,7 +8,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = @project.notes
+    @notes = @project.notes.order("position")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -88,4 +88,11 @@ class NotesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+	def sort
+		params[:note].each_with_index do |id, index|
+			@project.notes.update_all({position: index+1}, {id: id})
+		end
+		render nothing: true
+	end
 end

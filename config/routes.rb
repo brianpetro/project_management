@@ -4,7 +4,9 @@ Aehalo::Application.routes.draw do
 
   resources :projects do
     resources :blueprints
-    resources :notes
+    resources :notes do
+			collection { post :sort }
+		end
     resources :participants
   end
 

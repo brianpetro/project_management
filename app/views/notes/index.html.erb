@@ -1,24 +1,16 @@
 <h1>Listing notes</h1>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Note</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul id="notes" data-update-url="<%= sort_project_notes_url %>">
+	<% @notes.each do |note| %>
+    <%= content_tag_for :li, note do %>
+			<span class="handle">[sort]</span>
+			<%= note.note %>
+			<% note.coordinates.each do |c| %><%= c.blueprint_id %><% end %>
+			<%= link_to 'Show', [@project, note] %>
+		<% end %>
+	<% end %> 
+</ul>
 
-<% @notes.each do |note| %>
-  <tr>
-    <td><%= note.id %></td>
-    <td><%= note.note %></td>
-    <td><%= link_to 'Show', [@project, note] %></td>
-    <td><%= link_to 'Edit', edit_project_note_path(@project, note) %></td>
-    <td><%= link_to 'Destroy', [@project, note], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
 <br />
 
