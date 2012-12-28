@@ -1,35 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+	<div class="span8">
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Id:</b>
-  <%= @blueprint.id %>
-</p>
+		<p>
+			<b>Id:</b>
+			<%= @blueprint.id %>
+		</p>
 
-<p>
+		<p>
 
-  <a href="<%= @blueprint.bpu %>" class="btn">Open File</a>
+			<a href="<%= @blueprint.bpu %>" class="btn">Open File</a>
 
-  <%= render 'preview-modal' %>
+			<%= render 'preview-modal' %>
 
-</p>
+		</p>
 
-<p>
-  <b>Belongs to project:</b>
-  <%= @blueprint.project_id %>
-</p>
-
-
-<table class="table table-hover table-bordered">
-  <thead><tr><td><strong>Notes:</strong><%= link_to 'Add Note', new_project_note_path(@project, :blueprint_id => @blueprint.id), :class => 'btn' %></td></tr></head>
-  <tbody>
-    <% @blueprint.coordinates.each do |coordinate| %>
-      <tr id="note_<%= coordinate.note.id %>">
-        <td><%= coordinate.note.note %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+		<p>
+			<b>Belongs to project:</b>
+			<%= @blueprint.project_id %>
+		</p>
 
 
-<%= link_to 'Edit', edit_project_blueprint_path(@blueprint) %> |
-<%= link_to 'Back', project_blueprints_path %>
+		<table class="table table-hover table-bordered">
+			<thead><tr><td><strong>Notes:</strong><%= link_to 'Add Note', new_project_note_path(@project, :blueprint_id => @blueprint.id), :class => 'btn' %></td></tr></head>
+			<tbody>
+				<% @blueprint.coordinates.each do |coordinate| %>
+				  <tr id="note_<%= coordinate.note.id %>">
+				    <td><%= coordinate.note.note %></td>
+				  </tr>
+				<% end %>
+			</tbody>
+		</table>
+
+
+		<%= link_to 'Edit', edit_project_blueprint_path(@blueprint) %> |
+		<%= link_to 'Back', project_blueprints_path %>
+	</div>
+	<div class="span4">
+		<%= render 'show-sidebar' %>
+	</div>
+</div>

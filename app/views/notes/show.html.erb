@@ -1,19 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+	<div class="span8">
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Id:</b>
-  <%= @note.id %>
-</p>
+		<p>
+			<b>Id:</b>
+			<%= @note.id %>
+		</p>
 
-<p>
-  <b>Note:</b>
-  <%= @note.note %>
-</p>
+		<p>
+			<b>Note:</b>
+			<%= @note.note %>
+		</p>
 
-<p>
-  <b>Note Text:</b>
-  <%= @note.note_text %>
-</p>
+		<p>
+			<b>Note Text:</b>
+			<%= @note.note_text %>
+		</p>
 
-<%= link_to 'Edit', edit_project_note_path(@project, @note) %> |
-<%= link_to 'Back', project_path(@project) %>
+		<%= link_to 'Edit', edit_project_note_path(@project, @note) %> |
+		<%= link_to 'Back', project_path(@project) %>
+	</div>
+	<div class="span4">
+		<%= render 'show-sidebar' %>
+	</div>
+</div>
