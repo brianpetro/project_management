@@ -5,5 +5,7 @@ class Project < ActiveRecord::Base
   has_many :blueprints
   has_many :notes
   accepts_nested_attributes_for :participants
+	has_one :city
+	has_one :user, :through => :city
 
 end

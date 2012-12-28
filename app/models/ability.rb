@@ -11,7 +11,7 @@ class Ability
         can :manage, Participant
       end
       can :view, :gold if user.has_role? :gold
-      can :view, :platinum if user.has_role? :platinum
+      can :manage, Project if user.has_role? :platinum
     end
   end
 end
