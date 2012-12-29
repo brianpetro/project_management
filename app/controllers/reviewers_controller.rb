@@ -1,6 +1,9 @@
 class ReviewersController < ApplicationController
 	before_filter :get_city
 
+  load_and_authorize_resource
+
+
 	def get_city
     @city = City.find(params[:city_id])
   end

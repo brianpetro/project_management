@@ -1,10 +1,4 @@
 Aehalo::Application.routes.draw do
-
-
-
-
-
-
   resources :cities do
   	resources :reviewers
 	  resources :seals

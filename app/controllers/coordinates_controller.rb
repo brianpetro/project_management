@@ -1,4 +1,7 @@
 class CoordinatesController < ApplicationController
+
+  load_and_authorize_resource
+
   # GET /coordinates
   # GET /coordinates.json
   def index

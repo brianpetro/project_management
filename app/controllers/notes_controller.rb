@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
   before_filter :get_project
+
+  load_and_authorize_resource
   
   def get_project
     @project = Project.find(params[:project_id])
