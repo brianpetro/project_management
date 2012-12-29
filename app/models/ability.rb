@@ -29,7 +29,7 @@ class Ability
 				can :read, Participant
 				can :read, City
 				can :manage, Reviewer
-				can :update, Seal
+				can :manage, Seal
 			end
     end
   end

@@ -50,6 +50,7 @@ class SealsController < ApplicationController
   def create
     @seal = Seal.new(params[:seal])
 
+
     respond_to do |format|
       if @seal.save
         format.html { redirect_to [@city, @seal], notice: 'Seal was successfully created.' }
@@ -84,7 +85,7 @@ class SealsController < ApplicationController
     @seal.destroy
 
     respond_to do |format|
-      format.html { redirect_to seals_url }
+      format.html { redirect_to city_seals_url }
       format.json { head :no_content }
     end
   end
