@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
       when 'gold'
         user_path(current_user.id)
       when 'platinum'
-        content_platinum_path
+        user_path(current_user.id)
       else
         root_path
     end

@@ -1,10 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="row-fluid">
+	<div class="span8">
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @group.name %>
-</p>
+		<p>
+			<b>Name:</b>
+			<%= @group.name %><%= link_to 'Edit', edit_group_path(@group), :class => 'btn btn-mini' %>
+		</p>
+		
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<td><strong>Group Members</strong></td>
+				</tr>
+			</thead>
+			<tbody>
+				<% @group.users.each do |user| %>
+					<tr>
+						<td><%= user.name %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+	<div class="span4">
+		<h3>Groups</h3>
+		<ul>
+			<li>Primarilly organize users for functional purposes.</li>
+			<li><strong>Firms</strong> can use groups to easily associate employees with projects.</li>
+			<li>Groups are agile and can be used however end user finds most useful.</li>
+		</ul>
+	</div>
+</div>

@@ -27,6 +27,10 @@
 <!-- In sidebar partial -->
   <div class="span4">
     <%= render "sidebar" %>
+		<h4>Group Associations:</h4>
+		<% @user.groups.each do |g| %>
+			<li><%= link_to g.name, group_path(g.id) %></li>
+		<% end %>
   </div>
 
 </div>

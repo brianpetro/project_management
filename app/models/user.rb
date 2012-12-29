@@ -18,6 +18,9 @@ class User < ActiveRecord::Base
 	has_many :cities, :through => :reviewers
 	has_many :seals, :through => :cities
 
+	has_many :members
+	has_many :groups, :through => :members
+
   # This only allows users participating in a project to view an entire project (Upgrade for Sec.)
   def is_participant?(project_id)
     self.participants.exists?(:project_id => project_id)

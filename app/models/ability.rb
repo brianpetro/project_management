@@ -18,8 +18,24 @@ class Ability
 				can :read, City # Top Level.
 				can :read, Reviewer # Nested in City.
 				can :manage, Seal # Nested in City.
+				can :read, Group # Needs Updating
+				can :read, Member # Needs Updating
       end
-      can :view, :gold if user.has_role? :gold
+      if user.has_role? :gold
+				can :read, Project
+				can :read, Note
+				can :read, Blueprint 
+				can :read, Coordinate 
+				can :manage, User 
+				can :read, Participant
+				can :update, City
+				can :read, City
+				can :manage, Reviewer
+				can :update, Seal
+				can :read, Seal
+				can :manage, Group # Needs Updating
+				can :manage, Member # Needs Updating
+			end
       if user.has_role? :platinum
 				can :read, Project
 				can :read, Note
@@ -32,6 +48,8 @@ class Ability
 				can :manage, Reviewer
 				can :update, Seal
 				can :read, Seal
+				# can :manage, Group # City is Unable to interact or view groups
+				# can :manage, Member # City is Unable to interact or view groups/members
 			end
     end
   end

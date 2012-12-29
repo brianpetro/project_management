@@ -1,8 +1,18 @@
 class MembersController < ApplicationController
+	before_filter :get_group
+
+  load_and_authorize_resource
+
+
+	def get_group
+    @group = Group.find(params[:group_id])
+  end
+
+	
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = @group.members
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +23,7 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
-    @member = Member.find(params[:id])
+    @member = @group.members.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,8 +54,8 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
-        format.json { render json: @member, status: :created, location: @member }
+        format.html { redirect_to [@group, @member], notice: 'Member was successfully created.' }
+        format.json { render json: [@group, @member], status: :created, location: @member }
       else
         format.html { render action: "new" }
         format.json { render json: @member.errors, status: :unprocessable_entity }
@@ -60,7 +70,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.update_attributes(params[:member])
-        format.html { redirect_to @member, notice: 'Member was successfully updated.' }
+        format.html { redirect_to [@group, @member], notice: 'Member was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +86,7 @@ class MembersController < ApplicationController
     @member.destroy
 
     respond_to do |format|
-      format.html { redirect_to members_url }
+      format.html { redirect_to group_members_url }
       format.json { head :no_content }
     end
   end
