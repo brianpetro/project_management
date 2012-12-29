@@ -27,9 +27,11 @@ class Ability
 				can :read, Coordinate 
 				can :manage, User 
 				can :read, Participant
+				can :update, City
 				can :read, City
 				can :manage, Reviewer
-				can :manage, Seal
+				can :update, Seal
+				can :read, Seal
 			end
     end
   end

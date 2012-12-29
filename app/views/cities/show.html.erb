@@ -2,7 +2,7 @@
 	<div class="span8">
 		<p id="notice"><%= notice %></p>
 		<p>
-			<b>Project:</b>
+			<b>City:</b>
 			<%= @city.name %>
 		</p>
 		<p>
@@ -32,6 +32,8 @@
 					<% end %>
 				</tbody>
 			</table>
+		<% else %>
+			<%= link_to 'Seal and Submit to this City', new_city_seal_path(@city), :class => 'btn' %>
 		<% end %>
 	</div>
 
