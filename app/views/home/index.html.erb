@@ -1,30 +1,90 @@
-<div id="welcome" class="hero-unit span7">
-  <h1>Cloud Project Management</h1>
-  <h3>Serving Architects and Engineers.</h3>
+<div class="row-fluid">
+	<div id="welcome" class="hero-unit span12">
+		<h1>Cloud Project Management</h1>
+		<h3>Serving Architects and Engineers.</h3>
+	</div>
+	<div class="plans">
+		<div class="span4 well">
+		  <div class="plan"><h2>Solo</h2></div>
+		  <ul class="unstyled">
+		    <li>Add individual plan details.</li>
+				<li><a href="#more-solo" class="btn btn-mini btn-danger">Learn More.</a></li>
+		  </ul>
+		  <h3>$~/month</h3>
+		  <%= link_to 'Subscribe', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-primary btn-large' %> 
+		</div>
+		<div class="span4 well featured">
+		  <div class="plan featured-plan"><h2>Group</h2></div>
+		  <ul class="unstyled">
+		    <li>Enter package details for a firm.</li>
+				<li><a href="#more-group" class="btn btn-mini btn-danger">Learn More.</a></li>
+		  </ul>
+		  <h3>$~/month</h3>
+		  <%= link_to 'Subscribe', new_user_registration_path(:plan => 'gold'), :class => 'btn btn-primary btn-large' %> 
+		</div>
+		<div class="span4 well">
+		  <div class="plan"><h2>City</h2></div>
+		  <ul class="unstyled">
+		    <li>City Details</li>
+				<li><a href="#more-city" class="btn btn-mini btn-danger">Learn More.</a></li>
+		  </ul>
+		  <h3>$~/month</h3>
+		  <%= link_to 'Subscribe', new_user_registration_path(:plan => 'platinum'), :class => 'btn btn-primary btn-large' %> 
+		</div>
+	</div>
 </div>
-<div class="row span8 plans">
-  <div class="span2 well">
-    <div class="plan"><h2>Individual</h2></div>
-    <ul class="unstyled">
-      <li>Add individual plan details.</li>
-    </ul>
-    <h3>$~/month</h3>
-    <%= link_to 'Subscribe', new_user_registration_path(:plan => 'silver'), :class => 'btn btn-primary' %> 
-  </div>
-  <div class="span2 well featured">
-    <div class="plan featured-plan"><h2>Firm</h2></div>
-    <ul class="unstyled">
-      <li>Enter package details for a firm.</li>
-    </ul>
-    <h3>$~/month</h3>
-    <%= link_to 'Subscribe', new_user_registration_path(:plan => 'gold'), :class => 'btn btn-primary' %> 
-  </div>
-  <div class="span2 well">
-    <div class="plan"><h2>City</h2></div>
-    <ul class="unstyled">
-      <li>City Details</li>
-    </ul>
-    <h3>$~/month</h3>
-    <%= link_to 'Subscribe', new_user_registration_path(:plan => 'platinum'), :class => 'btn btn-primary' %> 
-  </div>
+
+	<div id="more-solo" class="row-fluid detail-row">
+		<div class='span4'>
+		  <a class='thumbnail' href='<%= new_user_registration_path(:plan => 'silver') %>'>
+		    <img height='125' src='http://lorempixel.com/420/420/people'>
+				</img>
+			</a>
+		</div>
+		<div class="span8 well">
+		      <h2>Solo Plan Details</h2>
+		      <p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere, purus dictum pretium pretium, dui lacus molestie lorem, in condimentum ipsum augue in odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu massa a ante tincidunt luctus id eget erat. Ut at mauris sed eros bibendum eleifend lobortis ut lectus. Nunc non luctus augue. Curabitur eget nisi quis nibh mollis fermentum. Suspendisse potenti. Phasellus elementum dui quis sapien pellentesque in aliquam libero porta. Aliquam vitae massa diam, eget placerat massa. Sed vulputate tempor ligula nec sodales. Nunc semper adipiscing gravida. Fusce elit nunc, vulputate sit amet rhoncus in, volutpat sit amet nisi. Fusce metus lacus, congue ut rhoncus dignissim, pellentesque ultricies nisl. Nam ac metus sit amet metus mollis posuere vel quis diam. In mollis orci ac nibh vehicula tempus sit amet vitae risus.
+		      </p>
+		</div>
+	</div>
+	<div id="more-group" class="row-fluid detail-row">
+		<div class="span8 well featured">
+		      <h2>Group Plan Details</h2>
+		      <p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere, purus dictum pretium pretium, dui lacus molestie lorem, in condimentum ipsum augue in odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu massa a ante tincidunt luctus id eget erat. Ut at mauris sed eros bibendum eleifend lobortis ut lectus. Nunc non luctus augue. Curabitur eget nisi quis nibh mollis fermentum. Suspendisse potenti. Phasellus elementum dui quis sapien pellentesque in aliquam libero porta. Aliquam vitae massa diam, eget placerat massa. Sed vulputate tempor ligula nec sodales. Nunc semper adipiscing gravida. Fusce elit nunc, vulputate sit amet rhoncus in, volutpat sit amet nisi. Fusce metus lacus, congue ut rhoncus dignissim, pellentesque ultricies nisl. Nam ac metus sit amet metus mollis posuere vel quis diam. In mollis orci ac nibh vehicula tempus sit amet vitae risus.
+		      </p>
+		</div>
+		<div class='span4'>
+		  <a class='thumbnail' href='<%= new_user_registration_path(:plan => 'silver') %>'>
+		    <img height='125' src='http://lorempixel.com/420/420/sports'>
+				</img>
+			</a>
+		</div>
+	</div>
+	<div id="more-city" class="row-fluid detail-row">
+		<div class='span4'>
+		  <a class='thumbnail' href='<%= new_user_registration_path(:plan => 'silver') %>'>
+		    <img height='125' src='http://lorempixel.com/420/420/city'>
+				</img>
+			</a>
+		</div>
+		<div class="span8 well">
+		      <h2>City Plan Details</h2>
+		      <p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec posuere, purus dictum pretium pretium, dui lacus molestie lorem, in condimentum ipsum augue in odio. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed eu massa a ante tincidunt luctus id eget erat. Ut at mauris sed eros bibendum eleifend lobortis ut lectus. Nunc non luctus augue. Curabitur eget nisi quis nibh mollis fermentum. Suspendisse potenti. Phasellus elementum dui quis sapien pellentesque in aliquam libero porta. Aliquam vitae massa diam, eget placerat massa. Sed vulputate tempor ligula nec sodales. Nunc semper adipiscing gravida. Fusce elit nunc, vulputate sit amet rhoncus in, volutpat sit amet nisi. Fusce metus lacus, congue ut rhoncus dignissim, pellentesque ultricies nisl. Nam ac metus sit amet metus mollis posuere vel quis diam. In mollis orci ac nibh vehicula tempus sit amet vitae risus.
+		      </p>
+		</div>
+	</div>
+
+
+				<p class='pull-right'>&copy; A&E Halo 2012</p>
+				<nav class='pull-left'>
+					<a class='pull-left' href='#welcome'>| Contact |</a>
+				  <a class='pull-left' href='#welcome'>| View Plans |</a>
+				  <a class='pull-left' href='#more-solo'>| Solo Account |</a>
+				  <a class='pull-left' href='#more-group'>| Group Account |</a>
+				  <a class='pull-left' href='#more-city'>| City Account |</a>
+				</nav>
 </div>
+
