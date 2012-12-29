@@ -15,7 +15,7 @@
 		<tbody>
 		  <% @project.blueprints.each do |blueprint| %>
 		    <tr>
-		      <td><%= link_to blueprint.id, [@project, blueprint] %></td>
+		      <td><%= link_to blueprint.title, [@project, blueprint] %></td>
 		<td><%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), :class => 'btn' %></td>
 		      <td><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></td>
 		    </tr>
