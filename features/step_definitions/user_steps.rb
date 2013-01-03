@@ -167,6 +167,10 @@ Then /I should be on the new silver user registration page$/ do
   current_path_with_args.should == '/users/sign_up/?plan=silver'
 end
 
+Then /^I should be on the user page$/ do
+  current_path_with_args.should == '/users/1'
+end
+
 Then /^I see an unconfirmed account message$/ do
   page.should have_content "You have to confirm your account before continuing."
 end

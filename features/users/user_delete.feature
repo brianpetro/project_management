@@ -24,7 +24,7 @@ Feature: Edit User
       Then I select "5 - May" as the "month"
       And I select "2015" as the "year"
       When I press "Sign up"
-      Then I should be on the "content silver" page
+      Then I should be on the user page
       And I should see a successful sign up message
       When I delete my account
       Then I should see an account deleted message

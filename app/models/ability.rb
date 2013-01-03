@@ -22,16 +22,15 @@ class Ability
 				can :read, Member # Needs Updating
       end
       if user.has_role? :gold
-				can :read, Project
-				can :read, Note
-				can :read, Blueprint 
-				can :read, Coordinate 
+				can :manage, Project
+				cannot :destroy Project
+				can :manage, Note
+				can :manage, Blueprint 
+				can :manage, Coordinate 
 				can :manage, User 
-				can :read, Participant
-				can :update, City
+				can :manage, Participant
 				can :read, City
-				can :manage, Reviewer
-				can :update, Seal
+				can :read, Reviewer
 				can :read, Seal
 				can :manage, Group # Needs Updating
 				can :manage, Member # Needs Updating
