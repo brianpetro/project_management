@@ -23,7 +23,6 @@ class Ability
       end
       if user.has_role? :gold
 				can :manage, Project
-				cannot :destroy Project
 				can :manage, Note
 				can :manage, Blueprint 
 				can :manage, Coordinate 
