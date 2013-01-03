@@ -22,6 +22,8 @@ class BlueprintsController < ApplicationController
   # GET /blueprints/1.json
   def show
     @blueprint = @project.blueprints.find(params[:id])
+		
+		@notes = @blueprint.notes.order("position")
 
     respond_to do |format|
       format.html # show.html.erb

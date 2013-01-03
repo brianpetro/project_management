@@ -6,5 +6,5 @@
   <li><strong>Add Note</strong> capability. Project or blueprint specific.</li>
 </ul>
 <% if current_user.is_participant?(@project.id) %>
-	<%= link_to 'Review Material', project_notes_path(@project), :class => 'btn' %>
+	<%= link_to 'Review Material', project_blueprints_path(@project), :class => 'btn' %>
 <% end %>
