@@ -1,8 +1,8 @@
 <%= simple_form_for([@group, @member]) do |f| %>
-  <%= f.error_notification %>
+
 
   <div class="form-inputs">
-    <%= f.input :group_id %>
+    <%= f.text_field :group_id, value: params[:group_id] %>
     <%= f.input :user_id %>
   </div>
 

@@ -10,7 +10,7 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<td><strong>Group Members</strong></td>
+					<td><strong>Group Members</strong><%= link_to 'Add Member', new_group_member_path(@group, :group_id => @group.id), :class => 'btn' %></td>
 				</tr>
 			</thead>
 			<tbody>
