@@ -5,6 +5,12 @@
     <%= f.input :name %>
   </div>
 
+  <%= f.fields_for :members do |builder| %>
+    <div class="form-inputs">
+      <%= builder.hidden_field :user_id, :value => current_user.id %>
+    </div>
+  <% end %>
+
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
