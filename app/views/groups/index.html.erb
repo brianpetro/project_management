@@ -1,8 +1,9 @@
 <div class="row-fluid">
 	<div class="span8">
+		<% unless current_user.nil? %>
 		<h1>Listing groups</h1>
 
-		<table>
+		<table class="table">
 			<tr>
 				<th>Name</th>
 				<th></th>
@@ -23,6 +24,7 @@
 		<br />
 
 		<%= link_to 'New Group', new_group_path, :class => 'btn' %>
+		<% end %>
 	</div>
 	<div class="span4">
 		<%= render 'sidebar_index' %>

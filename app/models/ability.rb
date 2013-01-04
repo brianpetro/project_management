@@ -7,6 +7,7 @@ class Ability
       can :manage, :all
     else
 			can :read, City
+			can :read, Group
       if user.has_role? :silver
 				can :manage, Project # Top Level.
 				cannot :destroy, Project
