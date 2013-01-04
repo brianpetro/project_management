@@ -40,3 +40,5 @@ gem "figaro", ">= 0.5.0"
 
 gem "carrierwave"
 gem "fog"
+
+gem 'acts-as-taggable-on'

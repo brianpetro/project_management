@@ -10,8 +10,11 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @notes = @project.notes.order("position")
-
+		if params[:tag]    
+			@notes = @project.notes.tagged_with(params[:tag])
+		else
+			@notes = @project.notes.order("position")
+		end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notes }

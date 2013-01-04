@@ -9,6 +9,10 @@
     <%= f.label :note_text %>
     <%= f.text_area :note_text %>
   </div>
+  <div class="form-inputs">
+    <%= f.label 'Tags' %>
+    <%= f.text_field :tag_list %>
+  </div>
   <%= f.fields_for :coordinates do |builder| %>
     <div class="form-inputs">
       <%= builder.label :blueprint_id, "Blueprint Association" %>

@@ -1,6 +1,9 @@
 <div class="row">
 		<p id="notice"><%= notice %></p>	
 			
+		<!-- Add task if has project_id -->
+			
+
 		<h3><%= @project.name %><%= link_to 'Edit', edit_project_path(@project), :class => 'btn btn-mini' %></h3>
 		<% if current_user.is_reviewer_of_project?(@project.id) %>
 			<%= render 'review' %>

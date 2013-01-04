@@ -7,6 +7,6 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :participants
 	has_one :seal, :dependent => :destroy
 	has_one :city, :through => :seal
-	
+	has_many :tasks
 
 end
