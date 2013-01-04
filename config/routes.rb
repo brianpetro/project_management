@@ -1,4 +1,7 @@
 Aehalo::Application.routes.draw do
+  resources :tasks
+
+
   resources :groups do
 	  resources :members
 	end
