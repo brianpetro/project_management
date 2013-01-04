@@ -1,5 +1,20 @@
-<h1>New seal</h1>
+<div class="row-fluid">
+	<div class="span8">
+		<h1>New seal</h1>
 
-<%= render 'form' %>
+		<%= render 'form' %>
 
-<%= link_to 'Back', city_seals_path %>
+		<%= link_to 'Back', city_seals_path, :class => 'btn btn-small' %>
+	</div>
+	<div class="span4">
+		<h3>Seals:</h3>
+		<ul>
+			<li>Successful creation of a seal submits a project to the desired city.</li>
+			<li>When 'sealed' a project is un-editable by the participants.</li>
+			<li>Reviewers can leave notes and update review status parameters.</li>
+			<li>Advanced user authentication occur prior to seal creation.</li>
+		</ul>
+	</div>
+</div>
+
+

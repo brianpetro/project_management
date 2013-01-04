@@ -1,25 +1,21 @@
 <h1>Listing seals</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <tr>
     <th>Project</th>
     <th>City</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @seals.each do |seal| %>
   <tr>
     <td><%= seal.project_id %></td>
     <td><%= seal.city_id %></td>
-    <td><%= link_to 'Show', [@city, seal] %></td>
-    <td><%= link_to 'Edit', edit_city_seal_path(@city, seal) %></td>
-    <td><%= link_to 'Destroy', [@city, seal], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', [@city, seal], :class => 'btn btn-small' %><%= link_to 'Edit', edit_city_seal_path(@city, seal), :class => 'btn btn-small' %><%= link_to 'Destroy', [@city, seal], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small' %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Seal', new_city_seal_path %>
+<%= link_to 'New Seal', new_city_seal_path, :class => 'btn' %>
