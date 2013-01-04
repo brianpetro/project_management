@@ -13,7 +13,7 @@ Feature: Edit User
     Scenario: I create a new subscription and delete my account
       Given: I am on the home page
       When I follow the subscribe for silver path
-      Then I should see "Silver Subscription Plan"
+      Then I should see "Silver Account"
       Given I fill in the following:
         | Name                       | Testy ShortLived  |
         | Email                      | short@testing.com |

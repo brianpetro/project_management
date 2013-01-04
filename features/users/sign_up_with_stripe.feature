@@ -5,7 +5,7 @@ Feature: User signs up with stripe
   Background:
     Given: I am on the home page
     When I follow the subscribe for silver path
-    Then I should see "Silver Subscription Plan"
+    Then I should see "Silver Account"
 
   @javascript
   Scenario: With valid card data
