@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104195404) do
+ActiveRecord::Schema.define(:version => 20130104204226) do
 
   create_table "blueprints", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20130104195404) do
     t.boolean  "complete",   :default => false, :null => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
+    t.integer  "project_id"
   end
 
   create_table "users", :force => true do |t|
