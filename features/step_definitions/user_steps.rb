@@ -2,7 +2,7 @@
 
 ##### Written by Brian Petro #####
 def create_visitor_silver
-  @visitor ||= { :name => "Test Silver", :email => "exampleSilver@example.com",
+  @visitor ||= { :name => "Test Silver", :email => "exampleSilver2@example.com",
     :password => "please", :password_confirmation => "please", :role => "silver" }
 end
 def create_visitor_gold

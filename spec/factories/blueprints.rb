@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :blueprint do
     id 1
-    loc "MyString"
+    title "MyString"
   end
 end
