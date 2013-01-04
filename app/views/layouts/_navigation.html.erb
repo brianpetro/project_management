@@ -13,15 +13,19 @@
       </li>
     <% end %>
     <li>
-    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
+    	<%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
     </li>
   <% else %>
     <li>
-    <%= link_to 'Login', new_user_session_path %>  
+    	<%= link_to 'Login', new_user_session_path %>  
     </li>
   <% end %>
-	</ul>
+</ul>
 <ul class="nav nav-pills pull-right">
-	<li><%= link_to 'Groups', groups_path, :class => '' %></li>
-	<li><%= link_to 'Cities', cities_path %></li>
+	<li>
+		<%= link_to 'Groups', groups_path, :class => '' %>
+	</li>
+	<li>
+		<%= link_to 'Cities', cities_path %>
+	</li>
 </ul>

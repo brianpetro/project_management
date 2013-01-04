@@ -1,24 +1,45 @@
-<h1>Listing cities</h1>
+<div class="row-fluid">
+	<div class="span8">
+		<h1>Listing cities</h1>
 
-<table>
-  <tr>
-    <th>City</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+		<table class="table table-bordered">
+			<tr>
+				<th>City</th>
+				<% if can? :manage, @city %>
+					<th>Admin Actions</th>
+				<% end %>
+			</tr>
 
-<% @cities.each do |city| %>
-  <tr>
-    <td><%= city.name %></td>
-    <td><%= link_to 'Show', city %></td>
-    <td><%= link_to 'Edit', edit_city_path(city) %></td>
-    <td><%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+		<% @cities.each do |city| %>
+			<tr>
+				<td>
+					<%= city.name %>
+				</td>
+				<% if can? :manage, @city %>
+					<td>
+					<%= link_to 'Show', city, :class => 'btn btn-mini' %>
+					<%= link_to 'Edit', edit_city_path(city), :class => 'btn btn-mini' %>
+					<%= link_to 'Destroy', city, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' %>
+					</td>
+				<% end %>
+			</tr>
+		<% end %>
+		</table>
 
-<br />
+		<br />
 
-<%= link_to 'New City', new_city_path %>
+		<%= link_to 'New City', new_city_path, :class => 'btn btn-mini' %>
+	</div>
+
+
+	<div class="span4">
+		<h3>City Directory</h3>
+		<ul>
+			<li>This page displays a directory of cities to the user.</li>
+			<li>Content focus will be on the cities most relevant to the user.</li>
+			<li>This page can feature announcements from the relevant cities.</li>
+			<li>We have the option to pre populate city information.</li>
+		</ul>
+	</div>
+</div>
+
