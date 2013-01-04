@@ -24,7 +24,7 @@ describe CitiesController do
   # City. As you add validations to City, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "user_ckey" => "MyString" }
+    { :name => "MyString" }
   end
 
   # This should return the minimal set of values that should be in the session

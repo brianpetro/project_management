@@ -5,7 +5,7 @@ Feature: Edit User
 
     @javascript
     Scenario: I sign in and delete my account
-      Given I am logged in
+      Given I am logged in silver
       When I delete my account
       Then I should see an account deleted message
 

@@ -4,6 +4,6 @@ Feature: Edit User
   so I can change my username
 
     Scenario: I sign in and edit my account
-      Given I am logged in
+      Given I am logged in silver
       When I change my email address
       Then I should see an account edited message

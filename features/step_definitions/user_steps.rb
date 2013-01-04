@@ -1,9 +1,37 @@
 ### UTILITY METHODS ###
 
-def create_visitor
-  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
+##### Written by Brian Petro #####
+def create_visitor_silver
+  @visitor ||= { :name => "Test Silver", :email => "exampleSilver@example.com",
     :password => "please", :password_confirmation => "please", :role => "silver" }
 end
+def create_visitor_gold
+  @visitor ||= { :name => "Test Gold", :email => "exampleGold@example.com",
+    :password => "please", :password_confirmation => "please", :role => "gold" }
+end
+def create_visitor_platinum
+  @visitor ||= { :name => "Test Platinum", :email => "examplePlatinum@example.com",
+    :password => "please", :password_confirmation => "please", :role => "platinum" }
+end
+def create_user_silver
+  create_visitor_silver
+  delete_user
+  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  @user.add_role(@visitor[:role])
+end
+def create_user_gold
+  create_visitor_gold
+  delete_user
+  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  @user.add_role(@visitor[:role])
+end
+def create_user_platinum
+  create_visitor_platinum
+  delete_user
+  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  @user.add_role(@visitor[:role])
+end
+##### End - Brian Petro #####
 
 def find_user
   @user ||= User.first conditions: {:email => @visitor[:email]}
@@ -16,12 +44,7 @@ def create_unconfirmed_user
   visit '/users/sign_out'
 end
 
-def create_user
-  create_visitor
-  delete_user
-  @user = FactoryGirl.create(:user, email: @visitor[:email])
-  @user.add_role(@visitor[:role])
-end
+
 
 def delete_user
   @user ||= User.first conditions: {:email => @visitor[:email]}
@@ -47,22 +70,48 @@ def sign_in
 end
 
 ### GIVEN ###
-Given /^I am not logged in$/ do
-  visit destroy_user_session_path
-end
+##### Written by Brian Petro #####
 
-Given /^I am logged in$/ do
-  create_user
+Given /^I am logged in gold$/ do
+  create_user_gold
+  sign_in
+end
+Given /^I am logged in silver$/ do
+  create_user_silver
+  sign_in
+end
+Given /^I am logged in platinum$/ do
+  create_user_platinum
   sign_in
 end
 
-Given /^I exist as a user$/ do
-  create_user
+Given /^I exist as a silver user$/ do
+  create_user_silver
 end
-
-Given /^I do not exist as a user$/ do
-  create_visitor
+Given /^I exist as a gold user$/ do
+  create_user_gold
+end
+Given /^I exist as a platinum user$/ do
+  create_user_platinum
+end
+Given /^I do not exist as a silver user$/ do
+  create_visitor_silver
   delete_user
+end
+Given /^I do not exist as a gold user$/ do
+  create_visitor_gold
+  delete_user
+end
+Given /^I do not exist as a platinum user$/ do
+  create_visitor_platinum
+  delete_user
+end
+##### End - Brian Petro #####
+
+
+
+Given /^I am not logged in$/ do
+  visit destroy_user_session_path
 end
 
 Given /^I exist as an unconfirmed user$/ do
@@ -70,34 +119,50 @@ Given /^I exist as an unconfirmed user$/ do
 end
 
 ### WHEN ###
-When /^I sign in with valid credentials$/ do
-  create_visitor
+
+##### Written by Brian Petro #####
+
+When /^I sign in with valid silver credentials$/ do
+  create_visitor_silver
   sign_in
 end
+When /^I sign in with valid gold credentials$/ do
+  create_visitor_gold
+  sign_in
+end
+When /^I sign in with valid platinum credentials$/ do
+  create_visitor_platinum
+  sign_in
+end
+When /^I visit my user page$/ do
+	visit user_path(@user.id)
+end
+##### End - Brian Petro #####
 
 When /^I sign out$/ do
   visit '/users/sign_out'
 end
 
+##### Begin using _silver to make sign_in features pass (Brian Petro)#####
 When /^I sign up with valid user data$/ do
-  create_visitor
+  create_visitor_silver
   sign_up
 end
 
 When /^I sign up with an invalid email$/ do
-  create_visitor
+  create_visitor_silver
   @visitor = @visitor.merge(:email => "notanemail")
   sign_up
 end
 
 When /^I sign up without a password confirmation$/ do
-  create_visitor
+  create_visitor_silver
   @visitor = @visitor.merge(:password_confirmation => "")
   sign_up
 end
 
 When /^I sign up without a password$/ do
-  create_visitor
+  create_visitor_silver
   @visitor = @visitor.merge(:password => "")
   sign_up
 end
@@ -107,10 +172,12 @@ When /^I sign up without a subscription plan$/ do
 end
 
 When /^I sign up with a mismatched password confirmation$/ do
-  create_visitor
+  create_visitor_silver
   @visitor = @visitor.merge(:password_confirmation => "please123")
   sign_up
 end
+##### End silver for sign up #####
+
 
 When /^I return to the site$/ do
   visit '/'
@@ -144,6 +211,8 @@ When /^I follow the subscribe for silver path$/ do
 end
 
 ### THEN ###
+
+
 Then /^I should be signed in$/ do
   page.should have_content "Logout"
   page.should_not have_content "Sign up"
