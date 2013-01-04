@@ -4,6 +4,10 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.all
 
+		@incomplete_tasks = Task.where(complete: false) ## Added from ryan bates checklist
+    @complete_tasks = Task.where(complete: true) ## Added from ryan bates checklist
+
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tasks }
@@ -40,7 +44,7 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(params[:task])
+    @task = Task.create!(params[:task]) ## New to create! follow ryan bates code
 
     respond_to do |format|
       if @task.save
@@ -57,6 +61,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1.json
   def update
     @task = Task.find(params[:id])
+		@task.update_attributes!(params[:task]) ## Added from ryan bates checklist
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
