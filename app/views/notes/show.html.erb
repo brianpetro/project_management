@@ -3,8 +3,8 @@
 		<p id="notice"><%= notice %></p>
 
 		<p>
-			<b>Id:</b>
-			<%= @note.id %>
+			<b>Tags:</b>
+			<%= raw @note.tag_list.map { |t| link_to t, tag_path(t, project_id: @project.id) }.join(', ') %>
 		</p>
 
 		<p>

@@ -37,6 +37,7 @@ class NotesController < ApplicationController
   def new
     @note = Note.new
     blueprint = @note.coordinates.build
+		@blueprint_id = params[:blueprint_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -47,6 +48,8 @@ class NotesController < ApplicationController
   # GET /notes/1/edit
   def edit
     @note = Note.find(params[:id])
+		@blueprint_id = params[:blueprint_id]
+
   end
 
   # POST /notes
@@ -70,6 +73,7 @@ class NotesController < ApplicationController
   # PUT /notes/1.json
   def update
     @note = Note.find(params[:id])
+
 
     respond_to do |format|
       if @note.update_attributes(params[:note])
