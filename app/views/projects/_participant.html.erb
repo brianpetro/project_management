@@ -8,7 +8,6 @@
 		</a>
 		<ul class="dropdown-menu">
 		  <li>
-				<%= link_to 'Add Note', new_project_note_path(@project) %>
 			</li>
 			<li>
 				<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project) %>
@@ -19,19 +18,19 @@
 	<% @project.blueprints.each do |blueprint| %>
 		<table class="table table-bordered">
 			<tr>
-				<th><%= link_to blueprint.title, [@project, blueprint] %></th>
+				<th><h4><%= link_to blueprint.title, [@project, blueprint] %></h4></th>
 			</tr>
 			<tr>
 				<td>
 					<ul>
-						<li>Tags: <%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></li>
+						<li>Tags: <i><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></i></li>
 						<li>Actions: <%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></li>
 					</ul>
 				</td>
 			</tr>
 
 			<tr>
-				<th>Notes</th>
+				<th>Notes <%= link_to 'Add Note', new_project_note_path(@project, blueprint_id: blueprint.id), class: 'btn btn-small' %></th>
 			</tr>
 			<tr>
 			  <td>
@@ -64,12 +63,6 @@
 
 	<% end %>
 
-
-
-
-
-
-	<%= link_to 'Back', projects_path, class: 'btn btn-small' %>
 </div>	
 <div class="span4">
 	<%= render 'participant-sidebar' %>
