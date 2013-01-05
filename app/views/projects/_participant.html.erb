@@ -37,9 +37,9 @@
 			  <td>
 					<% blueprint.notes.each do |note| %>
 						<ul>
-							<li>Note Description: <%= truncate note.note, :length => 60 %></li>
-							<li>Tags: <%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></li>
-							<li><%= link_to 'Open', [@project, note], class: 'btn' %></li>
+							<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %></strong></li>
+							<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add a tag.' %></li>
+							<li><i><%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></i></li>
 						</ul>
 					<% end %>
 				</td>
