@@ -1,3 +1,13 @@
+<div id="participant-list">
+	<strong>Participants:</strong>
+	<%= link_to 'Add Participant', new_project_participant_path(@project), class: 'btn btn-small' %>
+  <ol>
+		<% @project.users.each do |user| %>
+			<li><%= link_to user.name, user_path(user.id) %></li>
+		<% end %>
+	</ol>
+</div>
+
 <h4>Project Page (PARTICIPANT)</h4>
 <ul>
 	<li>This page acts as a hub for all aspects of a project.</li>
