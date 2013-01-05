@@ -16,56 +16,54 @@
 		</ul>
 	</div>
 
-	<table class="table table-bordered">
-		<thead>
+	<% @project.blueprints.each do |blueprint| %>
+		<table class="table table-bordered">
 			<tr>
-				<th>Blueprint</th>
+				<th><%= link_to blueprint.title, [@project, blueprint] %></th>
 			</tr>
 			<tr>
-				<th>Note</th>
+				<td>
+					<ul>
+						<li>Tags: <%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></li>
+						<li>Actions: <%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></li>
+					</ul>
+				</td>
 			</tr>
-		</thead>
-		<tbody>
-			<% @project.blueprints.each do |blueprint| %>
-				<tr>
-				  <td>
+
+			<tr>
+				<th>Notes</th>
+			</tr>
+			<tr>
+			  <td>
+					<% blueprint.notes.each do |note| %>
 						<ul>
-							<li><h6><%= link_to blueprint.title, [@project, blueprint] %></h6></li>
-							<li><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></li>
-							<li><%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></li>
+							<li>Note Description: <%= truncate note.note, :length => 60 %></li>
+							<li>Tags: <%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></li>
+							<li><%= link_to 'Open', [@project, note], class: 'btn' %></li>
 						</ul>
-					</td>
-				</tr>
-				<tr>
-			    <td>
-						<% blueprint.notes.each do |note| %>
-							<ul>
-								<li><%= truncate note.note, :length => 60 %></li>
-								<li><%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></li>
-								<li><%= link_to 'Open', [@project, note], class: 'btn' %></li>
-							</ul>
-						<% end %>
-					</td>
-				</tr>
+					<% end %>
+				</td>
+			</tr>
+		</table>
 
-<!-- Hidden Modal -->
-				<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		        <h3 id="myModalLabel"><%= blueprint.id %></h3>
-		      </div>
-		      <div class="modal-body">
-		        <img src="<%= blueprint.bpu %>" />
-		      </div>
-		      <div class="modal-footer">
-		        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		      </div>
-		    </div>
-<!-- End Hidden Modal -->
+	<!-- Hidden Modal -->
+		<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-header">
+		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		    <h3 id="myModalLabel"><%= blueprint.id %></h3>
+		  </div>
+		  <div class="modal-body">
+		    <img src="<%= blueprint.bpu %>" />
+		  </div>
+		  <div class="modal-footer">
+		    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		  </div>
+		</div>
+	<!-- End Hidden Modal -->
 
-			<% end %>
-		</tbody>
-	</table>
+
+	<% end %>
+
 
 
 
