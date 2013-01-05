@@ -1,28 +1,52 @@
-<div class="span8">			
-
+<div class="span8">
 	<p><h3><%= best_in_place @project, :name %><sub><span class="label">Click to edit</span></sub></h3></p>
+
+	<div class="btn-group pull-right">
+		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+		  Contribute
+		  <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+		  <li>
+				<%= link_to 'Add Note', new_project_note_path(@project) %>
+			</li>
+			<li>
+				<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project) %>
+			</li>
+		</ul>
+	</div>
 
 	<table class="table table-bordered">
 		<thead>
-			<%= link_to 'Add Note', new_project_note_path(@project), class: 'btn btn-small pull-right' %>
-			<%= link_to 'Add Drawing', new_project_blueprint_path(@project), class: 'btn btn-small pull-right' %>
+			<tr>
+				<th>Blueprint</th>
+			</tr>
+			<tr>
+				<th>Note</th>
+			</tr>
 		</thead>
 		<tbody>
 			<% @project.blueprints.each do |blueprint| %>
 				<tr>
-				  <td><%= link_to blueprint.title, [@project, blueprint] %></td>
-					<td><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></td>
-					<td><%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %></td>
-				  <td><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></td>
+				  <td>
+						<ul>
+							<li><h6><%= link_to blueprint.title, [@project, blueprint] %></h6></li>
+							<li><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></li>
+							<li><%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></li>
+						</ul>
+					</td>
 				</tr>
-				<% blueprint.notes.each do |note| %>
-					<tr>
-						<td></td>
-				    <td><%= truncate note.note, :length => 60 %></td>
-						<td><%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></td>
-						<td><%= link_to 'Open', [@project, note], class: 'btn' %></td>
-					</tr>
-				<% end %>
+				<tr>
+			    <td>
+						<% blueprint.notes.each do |note| %>
+							<ul>
+								<li><%= truncate note.note, :length => 60 %></li>
+								<li><%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></li>
+								<li><%= link_to 'Open', [@project, note], class: 'btn' %></li>
+							</ul>
+						<% end %>
+					</td>
+				</tr>
 
 <!-- Hidden Modal -->
 				<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
