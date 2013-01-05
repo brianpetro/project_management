@@ -18,17 +18,13 @@
 	<% @project.blueprints.each do |blueprint| %>
 		<table class="table table-bordered">
 			<tr>
-				<th><h4><%= link_to blueprint.title, [@project, blueprint] %></h4></th>
-			</tr>
-			<tr>
 				<td>
-					<ul>
-						<li>Tags: <i><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></i></li>
-						<li>Actions: <%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %><a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a></li>
-					</ul>
+					<h4><%= link_to blueprint.title, [@project, blueprint] %></h4>
+					<i><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></i></li>
+					<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn pull-right' %>
+					<a href="#myModal-<%= blueprint.id %>" role="button" class="btn pull-right" data-toggle="modal">Preview</a>
 				</td>
 			</tr>
-
 			<tr>
 				<th>Notes <%= link_to 'Add Note', new_project_note_path(@project, blueprint_id: blueprint.id), class: 'btn btn-small' %></th>
 			</tr>
