@@ -50,7 +50,8 @@
 		  <% @project.notes.each do |note| %>
 		    <tr>
 		      <td><%= truncate note.note, :length => 60 %></td>
-					<td><%= raw note.tag_list.map { |t| link_to t, tag_path(t, project_id: @project.id) }.join(', ') %></td>
+					<!--<td><%= raw note.tag_list.map { |t| link_to t, tag_path(t, project_id: @project.id) }.join(', ') %></td>-->
+					<td><%= best_in_place [@project, note], :tag_list %></td>
 					<td><%= link_to 'Open', [@project, note], class: 'btn' %></td>
 		    </tr>
 		  <% end %>

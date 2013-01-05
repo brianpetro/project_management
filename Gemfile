@@ -42,3 +42,5 @@ gem "carrierwave"
 gem "fog"
 
 gem 'acts-as-taggable-on'
+
+gem 'best_in_place'

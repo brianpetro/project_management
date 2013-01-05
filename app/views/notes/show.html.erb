@@ -1,24 +1,24 @@
 <div class="row-fluid">
 	<div class="span8">
 		<p id="notice"><%= notice %></p>
-
+		<h4>Click to edit</h4>
 		<p>
 			<b>Tags:</b>
-			<%= raw @note.tag_list.map { |t| link_to t, tag_path(t, project_id: @project.id) }.join(', ') %>
+			<%= best_in_place [@project, @note], :tag_list %>
 		</p>
 
 		<p>
 			<b>Note:</b>
-			<%= @note.note %>
+			<%= best_in_place [@project, @note], :note %>
 		</p>
 
 		<p>
 			<b>Note Text:</b>
-			<%= @note.note_text %>
+			<%= best_in_place [@project, @note], :note_text %>
 		</p>
 
-		<%= link_to 'Edit', edit_project_note_path(@project, @note) %> |
-		<%= link_to 'Back', project_path(@project) %>
+		<%= link_to 'Edit', edit_project_note_path(@project, @note), class: 'btn btn-small' %> |
+		<%= link_to 'Back', project_path(@project), class: 'btn btn-small' %>
 	</div>
 	<div class="span4">
 		<%= render 'show-sidebar' %>
