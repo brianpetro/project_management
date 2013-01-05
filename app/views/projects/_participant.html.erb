@@ -1,10 +1,6 @@
 <div class="span8">			
 
-	<div id="tag_cloud">
-		<% tag_cloud Note.tag_counts, %w[s m l] do |tag, css_class| %>
-		  <%= link_to tag.name, tag_path(tag.name, project_id: @project.id), class: css_class %>
-		<% end %>
-	</div>
+
 
 	<div id="participant-list">
 		<strong>Participants:</strong>
@@ -17,7 +13,7 @@
 	</div>
 	<table class="table table-hover table-bordered">
 		<thead>
-		  <tr><td><strong>Blueprints</strong><%= link_to 'Add Drawing', new_project_blueprint_path(@project), class: 'btn btn-small' %></td></tr>
+		  <th>Blueprints<%= link_to 'Add Drawing', new_project_blueprint_path(@project), class: 'btn btn-small pull-right' %></th>
 		</thead>
 		<tbody>
 		  <% @project.blueprints.each do |blueprint| %>
@@ -44,7 +40,7 @@
 
 	<table class="table table-hover table-bordered">
 		<thead>
-		  <tr><td><strong><%= link_to 'Notes', project_notes_path(@project) %></strong><%= link_to 'Add Note', new_project_note_path(@project), class: 'btn btn-small' %></td></tr>
+		  <tr><th><%= link_to 'Notes', project_notes_path(@project) %><%= link_to 'Add Note', new_project_note_path(@project), class: 'btn btn-small' %></th></tr>
 		</thead>
 		<tbody>
 		  <% @project.notes.each do |note| %>
@@ -61,4 +57,11 @@
 </div>	
 <div class="span4">
 	<%= render 'participant-sidebar' %>
+
+	<h3>Popular Tags</h3>
+	<div id="tag_cloud">
+		<% tag_cloud Note.tag_counts, %w[s m l] do |tag, css_class| %>
+		  <%= link_to tag.name, tag_path(tag.name, project_id: @project.id), class: css_class %>
+		<% end %>
+	</div>
 </div>
