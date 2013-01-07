@@ -1,5 +1,5 @@
 <%= link_to "A&E Halo", root_path, :class => 'brand' %>
-<ul class="nav nav-pills">
+<ul class="nav">
   <% if user_signed_in? %>
     <li>
       <%= link_to current_user.name, user_path(current_user.id) %>
@@ -21,7 +21,20 @@
     </li>
   <% end %>
 </ul>
-<ul class="nav nav-pills pull-right">
+<ul class="nav pull-right">
+	<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      Projects
+		  <b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		  <% current_user.projects.each do |p| %>
+      <li><%= link_to p.name, project_path(p) %></li>
+			<% end %>
+		</ul>
+  </li>
+
+
 	<li>
 		<%= link_to 'Groups', groups_path, :class => '' %>
 	</li>
