@@ -19,10 +19,13 @@
 		<table class="table table-bordered">
 			<tr>
 				<td>
+					<div class="pull-right">
+						<strong><i><span class="muted">Blueprint</span></i></strong>
+						<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %>
+						<a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a>
+					</div>
 					<h4><%= link_to blueprint.title, [@project, blueprint] %></h4>
 					<i><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></i></li>
-					<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn pull-right' %>
-					<a href="#myModal-<%= blueprint.id %>" role="button" class="btn pull-right" data-toggle="modal">Preview</a>
 				</td>
 			</tr>
 			<tr>
