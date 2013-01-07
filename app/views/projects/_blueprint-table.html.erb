@@ -1,11 +1,10 @@
 <p><span class="lead muted">Click-to-edit is enabled on all notes and tags.</span><br><span class="muted"><i>Use commas to seperate tags.</i></span></p>
 <% @project.blueprints.each do |blueprint| %>
-	<table class="table table-bordered">
+	<table id="blueprint-table-<%= blueprint.title %>" class="table table-bordered">
 		<tr>
 			<td>
 				<div class="pull-right">
 					<i><span class="muted"><%= blueprint.author %><strong> Blueprint</span></i></strong>
-					
 					<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %>
 					<a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a>
 				</div>
@@ -19,7 +18,7 @@
 		<tr>
 		  <td>
 				<% blueprint.notes.each do |note| %>
-					<ul>
+					<ul id="note-table-<%= note.id %>">
 						<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %></strong></li>
 						<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add a tag.' %></li>
 						<li><i><%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></i></li>

@@ -1,0 +1,32 @@
+<div class="well well-small">
+	<h4>Contents</h4>
+	<ol>
+		<% @project.blueprints.each do |b| %>
+			<li><a href="#blueprint-table-<%= b.id %>"><%= b.title %></a>
+				<ul>
+					<% b.notes.each do |n| %>
+						<% if n.note? %>
+							<li><a href="#note-table-<%= n.id %>"><%= n.note %></a></li>
+						<% end %>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ol>
+</div>
+<div class="well">
+	<h3>Note Tags</h3>
+	<div id="tag_cloud">
+		<% tag_cloud Note.tag_counts, %w[s m l] do |n, css_class| %>
+			<%= link_to n.name, note_path(n.name, project_id: @project.id), class: css_class %>
+		<% end %>
+	</div>
+</div>
+<div class="well">
+	<h3>Blueprint Tags</h3>
+	<div id="tag_cloud">
+		<% tag_cloud Blueprint.tag_counts, %w[s m l] do |b, css_class| %>
+			<%= link_to b.name, blueprint_path(b.name, project_id: @project.id), class: css_class %>
+		<% end %>
+	</div>
+</div>

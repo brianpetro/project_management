@@ -1,5 +1,5 @@
 <div class="well">
-	<p><h3><%= best_in_place @project, :name %><sub><span class="label">Click to edit</span></sub></h3></p>
+	<p><h3><%= best_in_place @project, :name %><sub><i class="icon-pencil"></i></sub></h3></p>
 	<div class="btn-group">
 		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
 			Contribute to Project
@@ -32,19 +32,4 @@
 		<li>Click the note tags to add or edit them. <strong>In-place-editing</strong></li>
 	</ul>
 </div>
-<div class="well">
-	<h3>Note Tags</h3>
-	<div id="tag_cloud">
-		<% tag_cloud Note.tag_counts, %w[s m l] do |n, css_class| %>
-			<%= link_to n.name, note_path(n.name, project_id: @project.id), class: css_class %>
-		<% end %>
-	</div>
-</div>
-<div class="well">
-	<h3>Blueprint Tags</h3>
-	<div id="tag_cloud">
-		<% tag_cloud Blueprint.tag_counts, %w[s m l] do |b, css_class| %>
-			<%= link_to b.name, blueprint_path(b.name, project_id: @project.id), class: css_class %>
-		<% end %>
-	</div>
-</div>
+
