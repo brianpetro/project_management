@@ -7,8 +7,6 @@
 		  <span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu">
-		  <li>
-			</li>
 			<li>
 				<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project) %>
 			</li>
@@ -20,11 +18,4 @@
 </div>	
 <div class="span4">
 	<%= render 'participant-sidebar' %>
-
-	<h3>Note Tags</h3>
-	<div id="tag_cloud">
-		<% tag_cloud Note.tag_counts, %w[s m l] do |tag, css_class| %>
-		  <%= link_to tag.name, tag_path(tag.name, project_id: @project.id), class: css_class %>
-		<% end %>
-	</div>
 </div>

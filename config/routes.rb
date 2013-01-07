@@ -25,7 +25,8 @@ Aehalo::Application.routes.draw do
 
 
   mount StripeEvent::Engine => '/stripe'
-	get 'tags/:tag', to: 'notes#index', as: :tag
+	get 'notes/:tag', to: 'notes#index', as: :note
+	get 'blueprints/:tag', to: 'blueprints#index', as: :blueprint
   get "content/gold"
   get "content/silver"
   get "content/platinum"

@@ -16,6 +16,20 @@
   <li><strong>Add Note</strong> capability. Project or blueprint specific.</li>
 	<li>Click the note tags to add or edit them. <strong>In-place-editing</strong></li>
 </ul>
-<% if current_user.is_participant?(@project.id) %>
-	<%= link_to 'Review Material', project_blueprints_path(@project), :class => 'btn' %>
-<% end %>
+
+<%= link_to 'Review Material', project_blueprints_path(@project), :class => 'btn' %>
+
+
+<h3>Note Tags</h3>
+<div id="tag_cloud">
+	<% tag_cloud Note.tag_counts, %w[s m l] do |n, css_class| %>
+	  <%= link_to n.name, note_path(n.name, project_id: @project.id), class: css_class %>
+	<% end %>
+</div>
+
+<h3>Blueprint Tags</h3>
+<div id="tag_cloud">
+	<% tag_cloud Blueprint.tag_counts, %w[s m l] do |b, css_class| %>
+	  <%= link_to b.name, blueprint_path(b.name, project_id: @project.id), class: css_class %>
+	<% end %>
+</div>

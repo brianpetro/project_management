@@ -10,8 +10,11 @@ class BlueprintsController < ApplicationController
   # GET /blueprints
   # GET /blueprints.json
   def index
+		if params[:tag]    
+			@blueprints = @project.blueprints.tagged_with(params[:tag])
+		else
     @blueprints = @project.blueprints
-
+		end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @blueprints }
