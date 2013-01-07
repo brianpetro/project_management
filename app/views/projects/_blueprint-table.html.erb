@@ -37,7 +37,7 @@
 	    <% if File.extname(blueprint.bpu.to_s) == '.pdf' %>
 				<%= link_to 'Open PDF', blueprint.bpu.to_s, class: 'btn btn-success' %>
 			<% else %>
-				<%= image_tag blueprint.bpu %>
+				<a href="<%= blueprint.bpu %>"><%= image_tag blueprint.bpu %></a>
 			<% end %>
 	  </div>
 	  <div class="modal-footer">
