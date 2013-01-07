@@ -1,30 +1,20 @@
 <div class="row-fluid">
 	<div class="span8">
-		<h1>Listing blueprints</h1>
+		<h1>Blueprints tagged <i><%= params[:tag] %></i></h1>
 
 
 		<% @blueprints.each do |blueprint| %>
 			<table class="table table-hover">
-				<thead>
+
 					<tr>
-						<th>Position</th>
-						<th><strong><%= blueprint.title %></strong><%= link_to 'Show', [@project, blueprint], :class => 'btn btn-mini' %><%= link_to 'Edit', edit_project_blueprint_path(@project, blueprint), :class => 'btn btn-mini' %><%= link_to 'Destroy', [@project, blueprint], method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' %></th>
+
+						<th><strong><%= blueprint.title %></strong><%= link_to 'Show', [@project, blueprint], :class => 'btn btn-mini' %><%= link_to 'Edit', edit_project_blueprint_path(@project, blueprint), :class => 'btn btn-mini' %></th>
 					</tr>
-				</thead>
-				<tbody>
-					<% blueprint.notes.each do |note| %>
-						<tr>
-							<td><%= note.position %></td>
-							<td>										
-								<strong><%= link_to truncate(note.note, :length => 100), [@project, note] %></strong>
-								<%= truncate note.note_text, :length => 200 %>
-							</td>
-						</tr>
-					<% end %>
-				</tbody>
+
+
 			</table>
 		<% end %>
-		<br>
+
 
 
 	</div>
