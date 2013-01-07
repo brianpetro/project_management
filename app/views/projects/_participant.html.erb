@@ -1,21 +1,8 @@
 <div class="span8">
-	<p><h3><%= best_in_place @project, :name %><sub><span class="label">Click to edit</span></sub></h3></p>
-
-	<div class="btn-group pull-right">
-		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-		  Contribute
-		  <span class="caret"></span>
-		</a>
-		<ul class="dropdown-menu">
-			<li>
-				<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project) %>
-			</li>
-		</ul>
-	</div>
-
 	<%= render 'blueprint-table' %>
-
 </div>	
 <div class="span4">
-	<%= render 'participant-sidebar' %>
+	<div class="well">
+		<%= render 'participant-sidebar' %>
+	</div>
 </div>
