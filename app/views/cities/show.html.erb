@@ -33,20 +33,20 @@
 				</tbody>
 			</table>
 		<% else %>
-			<%= link_to 'Seal and Submit to this City', new_city_seal_path(@city), :class => 'btn' %>
+			*Displays to non city accounts*
 		<% end %>
 	</div>
 
 	<div class="span4">
-		<h3>City Page</h3>
-		<ul>		
-			<li>First city reviewer verified and added internally by A&E Halo.</li>
-			<li>City reviewers have the ability to add more users.</li>
-			<li>Users can begin submission to city from this page.</li>
-			<li>Cities can browse submitted projects from this page.</li>
-		</ul>
+		<div class="well">
+			<%= link_to 'Seal and Submit to this City', new_city_seal_path(@city), :class => 'btn btn-block btn-primary' %>
+			<h3>City Page</h3>
+			<ul>		
+				<li>First city reviewer verified and added internally by A&E Halo.</li>
+				<li>City reviewers have the ability to add more users.</li>
+				<li>Users can begin submission to city from this page.</li>
+				<li>Cities can browse submitted projects from this page.</li>
+			</ul>
+		</div>
 	</div>
 </div>
-
-<%= link_to 'Edit', edit_city_path(@city) %> |
-<%= link_to 'Back', cities_path %>

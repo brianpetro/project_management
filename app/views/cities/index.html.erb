@@ -1,10 +1,11 @@
 <div class="row-fluid">
 	<div class="span8">
-		<!--<h1>Listing cities</h1>
+		<h1>Listing cities</h1>
 
 		<table class="table table-bordered">
 			<tr>
 				<th>City</th>
+				<th>Seals Count</th>
 				<% if can? :manage, @city %>
 					<th>Admin Actions</th>
 				<% end %>
@@ -12,9 +13,8 @@
 
 		<% @cities.each do |city| %>
 			<tr>
-				<td>
-					<%= city.name %>
-				</td>
+				<td><%= city.name %></td>
+				<td><%= city.seals.count %></td>
 				<% if can? :manage, @city %>
 					<td>
 					<%= link_to 'Show', city, :class => 'btn btn-mini' %>
@@ -24,7 +24,7 @@
 				<% end %>
 			</tr>
 		<% end %>
-		</table>-->
+		</table>
 
 		<% if current_user.has_role? :admin %>
 			<%= link_to 'New City', new_city_path, :class => 'btn btn-mini' %>
