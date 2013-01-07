@@ -84,7 +84,7 @@ class ParticipantsController < ApplicationController
     @participant.destroy
 
     respond_to do |format|
-      format.html { redirect_to participants_url }
+      format.html { redirect_to project_participants_url }
       format.json { head :no_content }
     end
   end
