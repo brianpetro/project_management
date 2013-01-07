@@ -1,37 +1,36 @@
-<div class="span8">
-	<p>Use this partial to arrange project show for review</p>
-	<div>
-		<ol>
-			<% @project.blueprints.each do |blueprint| %>
-				<li><p><strong><%= blueprint.title %></strong><span class="muted"> <%= blueprint.tag_list %></span></p>
-					<ul>
-						<% blueprint.notes.each do |note| %>
-							<li><p><%= note.note %><span class="muted"> <%= blueprint.tag_list %></span></p></li>
-						<% end %>
-					</ul>
-				</li>
-			<% end %>
-		</ol>
-	</div>
-
-
-	<div>
-		<ol>
-			<% @project.blueprints.each do |blueprint| %>
-				<li><h3><%= link_to 'Open', blueprint.bpu.to_s, class: 'btn' %><strong><%= blueprint.title %></strong><span class="muted"> <%= blueprint.tag_list %></span></h3>
-					<ul class="lead">
-						<% blueprint.notes.each do |note| %>
-							<li><p><strong><%= note.note %></strong></p></li>
-							<li><p><%= note.note_text %></p></li>
-						<% end %>
-					</ul>
-				</li>
-			<% end %>
-		</ol>
-	</div>
+<p>Use this partial to arrange project show for review</p>
+<div>
+	<ol>
+		<% @project.blueprints.each do |blueprint| %>
+			<li><p><strong><%= blueprint.title %></strong><span class="muted"> <%= blueprint.tag_list %></span></p>
+				<ul>
+					<% blueprint.notes.each do |note| %>
+						<li><p><%= note.note %><span class="muted"> <%= blueprint.tag_list %></span></p></li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ol>
 </div>
 
 
-<div class="span4">
-	<%= render 'reviewer-sidebar' %>
+<div>
+	<ol>
+		<% @project.blueprints.each do |blueprint| %>
+			<li><h3><%= link_to 'Open', blueprint.bpu.to_s, class: 'btn' %><strong><%= blueprint.title %></strong><span class="muted"> <%= blueprint.tag_list %></span></h3>
+				<ul class="lead">
+					<% blueprint.notes.each do |note| %>
+						<li><p><strong><%= note.note %></strong></p></li>
+						<li><p><%= note.note_text %></p></li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ol>
 </div>
+
+
+
+
+
+

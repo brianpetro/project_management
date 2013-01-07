@@ -6,7 +6,12 @@
 
 		
 		<% if current_user.is_reviewer_of_project?(@project.id) %>
-			<%= render 'review' %>
+			<div class="span8">
+				<%= render 'review' %>
+			</div>
+			<div class="span4">
+				<%= render 'reviewer-sidebar' %>
+			</div>
 		<% end %>
 		<!-- Begin visible to project participants only, NEEDS request to participate in ELSE -->
 		<% if current_user.is_participant?(@project.id) %>
