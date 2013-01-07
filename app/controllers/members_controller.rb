@@ -54,7 +54,7 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        format.html { redirect_to [@group, @member], notice: 'Member was successfully created.' }
+        format.html { redirect_to [@group], notice: 'Member was successfully created.' }
         format.json { render json: [@group, @member], status: :created, location: @member }
       else
         format.html { render action: "new" }
