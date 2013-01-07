@@ -3,15 +3,13 @@
 	<p>
 		<%= f.label :title %>
 		<%= f.text_field :title %>
-	</p>
-
-	<p>
+		<br>
 		<%= f.label :tag_list, "Tags (separated by commas)" %>
 		<%= f.text_field :tag_list %>
-	</p>
-
+		<br>
+		<%= f.hidden_field :author, value: current_user.name %>
     <%= f.file_field :bpu %>
-  </p>
+	</p>
 
   <div class="form-actions">
     <%= f.button :submit %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104223013) do
+ActiveRecord::Schema.define(:version => 20130107105911) do
 
   create_table "blueprints", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130104223013) do
     t.integer  "project_id"
     t.string   "bpu"
     t.string   "title"
+    t.string   "author"
   end
 
   create_table "cities", :force => true do |t|

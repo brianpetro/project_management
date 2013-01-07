@@ -5,13 +5,9 @@
 
 		<% @blueprints.each do |blueprint| %>
 			<table class="table table-hover">
-
-					<tr>
-
-						<th><strong><%= blueprint.title %></strong><%= link_to 'Show', [@project, blueprint], :class => 'btn btn-mini' %><%= link_to 'Edit', edit_project_blueprint_path(@project, blueprint), :class => 'btn btn-mini' %></th>
-					</tr>
-
-
+				<tr>
+					<th><strong><%= blueprint.title %></strong><%= link_to 'Show', [@project, blueprint], :class => 'btn btn-mini' %><%= link_to 'Edit', edit_project_blueprint_path(@project, blueprint), :class => 'btn btn-mini' %></th>
+				</tr>
 			</table>
 		<% end %>
 

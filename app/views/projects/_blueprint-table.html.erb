@@ -4,7 +4,8 @@
 		<tr>
 			<td>
 				<div class="pull-right">
-					<strong><i><span class="muted">Blueprint</span></i></strong>
+					<i><span class="muted"><%= blueprint.author %><strong> Blueprint</span></i></strong>
+					
 					<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %>
 					<a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a>
 				</div>
