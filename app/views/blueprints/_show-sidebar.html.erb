@@ -1,18 +1,19 @@
 <h3><%= @blueprint.title %></h3>
+<%= link_to 'Update', edit_project_blueprint_path(@project, @blueprint), :class => 'btn btn-primary' %>
 <p>
+	<br>
 	<b>Belongs to project:</b>
 	<%= @blueprint.project_id %>
-</p>
-<p>
+	<br>
 	<b>Created:</b>
 	<%= @blueprint.created_at %>
+	<br>
+	<h4>Blueprint Page</h4>
+	<ul>
+		<li>View all information related to a blueprint.</li>
+		<li><strong>Edit title or add tag.</strong></li>
+		<li>Add Notes.</li>
+	</ul>
 </p>
-<br>
-<h4>Blueprint Page</h4>
-<ul>
-	<li>View all information related to a blueprint.</li>
-	<li><strong>Edit title or add tag.</strong></li>
-	<li>Add Notes.</li>
-</ul>
 
 <%= link_to 'Back to Project', project_path(@project), :class => 'btn' %>
