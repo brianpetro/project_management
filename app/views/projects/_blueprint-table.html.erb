@@ -1,0 +1,48 @@
+<% @project.blueprints.each do |blueprint| %>
+	<table class="table table-bordered">
+		<tr>
+			<td>
+				<div class="pull-right">
+					<strong><i><span class="muted">Blueprint</span></i></strong>
+					<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %>
+					<a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a>
+				</div>
+				<h4><%= link_to blueprint.title, [@project, blueprint] %></h4>
+				<i><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></i></li>
+			</td>
+		</tr>
+		<tr>
+			<th>Notes <%= link_to 'Add Note', new_project_note_path(@project, blueprint_id: blueprint.id), class: 'btn btn-small' %></th>
+		</tr>
+		<tr>
+		  <td>
+				<% blueprint.notes.each do |note| %>
+					<ul>
+						<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %></strong></li>
+						<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add a tag.' %></li>
+						<li><i><%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></i></li>
+					</ul>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+
+	<!-- Hidden Modal -->
+	<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel"><%= blueprint.id %></h3>
+	  </div>
+	  <div class="modal-body">
+	    <% if File.extname(blueprint.bpu.to_s) == '.pdf' %>
+				<%= link_to 'Open PDF', blueprint.bpu.to_s, class: 'btn btn-success' %>
+			<% else %>
+				<%= image_tag blueprint.bpu %>
+			<% end %>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	  </div>
+	</div>
+	<!-- End Hidden Modal -->
+<% end %>
