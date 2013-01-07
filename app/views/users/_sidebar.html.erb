@@ -1,14 +1,20 @@
-<% if current_user.id == @user.id %>
-	<%= link_to 'Edit account', edit_user_registration_path, class: 'btn btn-primary btn-block' %>
-<% end %>
-<h4>User Page</h4>
-<ul>
-	<li>Displays the projects the current user is participating in.</li>
-	<li>A user is granted access only to his/her 'User Page.'</li>
-	<li><strong>New Project</strong> capability.</li>
-</ul>
-
-<h4>My Groups:</h4>
-<% current_user.groups.each do |g| %>
-	<li><%= link_to g.name, group_path(g.id) %></li>
-<% end %>
+<div class="well">
+	<h3><%= @user.name %></h3>
+	<% if current_user.id == @user.id %>
+		<%= link_to 'Edit account', edit_user_registration_path, class: 'btn btn-primary btn-block' %>
+	<% end %>
+</div>
+<div class="well">
+	<h4>User Page</h4>
+	<ul>
+		<li>Displays the projects the current user is participating in.</li>
+		<li>A user is granted access only to his/her 'User Page.'</li>
+		<li><strong>New Project</strong> capability.</li>
+	</ul>
+</div>
+<div class="well">
+	<h4>My Groups:</h4>
+	<% current_user.groups.each do |g| %>
+		<li><%= link_to g.name, group_path(g.id) %></li>
+	<% end %>
+</div>

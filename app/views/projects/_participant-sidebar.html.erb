@@ -1,45 +1,50 @@
-<p><h3><%= best_in_place @project, :name %><sub><span class="label">Click to edit</span></sub></h3></p>
-<div class="btn-group">
-	<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-	  Contribute to Project
-	  <span class="caret"></span>
-	</a>
-	<ul class="dropdown-menu">
-		<li>
-			<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project) %>
-		</li>
+<div class="well">
+	<p><h3><%= best_in_place @project, :name %><sub><span class="label">Click to edit</span></sub></h3></p>
+	<div class="btn-group">
+		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+			Contribute to Project
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li>
+				<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project) %>
+			</li>
+		</ul>
+	</div>
+	<div id="participant-list">
+		<br>
+		<strong>Participants:</strong>
+		<%= link_to 'Add Participant', new_project_participant_path(@project), class: 'btn btn-small' %>
+		<ol>
+			<% @project.users.each do |user| %>
+				<li><%= link_to user.name, user_path(user.id) %></li>
+			<% end %>
+		</ol>
+	</div>
+</div>
+<div class="well">
+	<h4>Project Page (PARTICIPANT)</h4>
+	<ul>
+		<li>This page acts as a hub for all aspects of a project.</li>
+		<li>Any user participating in a project is capable of using this page</li>
+		<li><strong>Add Drawing</strong> capability. Uploads digital blueprint to project.</li>
+		<li><strong>Add Note</strong> capability. Project or blueprint specific.</li>
+		<li>Click the note tags to add or edit them. <strong>In-place-editing</strong></li>
 	</ul>
 </div>
-<div id="participant-list">
-	<br>
-	<strong>Participants:</strong>
-	<%= link_to 'Add Participant', new_project_participant_path(@project), class: 'btn btn-small' %>
-  <ol>
-		<% @project.users.each do |user| %>
-			<li><%= link_to user.name, user_path(user.id) %></li>
+<div class="well">
+	<h3>Note Tags</h3>
+	<div id="tag_cloud">
+		<% tag_cloud Note.tag_counts, %w[s m l] do |n, css_class| %>
+			<%= link_to n.name, note_path(n.name, project_id: @project.id), class: css_class %>
 		<% end %>
-	</ol>
+	</div>
 </div>
-
-<h4>Project Page (PARTICIPANT)</h4>
-<ul>
-	<li>This page acts as a hub for all aspects of a project.</li>
-  <li>Any user participating in a project is capable of using this page</li>
-	<li><strong>Add Drawing</strong> capability. Uploads digital blueprint to project.</li>
-  <li><strong>Add Note</strong> capability. Project or blueprint specific.</li>
-	<li>Click the note tags to add or edit them. <strong>In-place-editing</strong></li>
-</ul>
-
-<h3>Note Tags</h3>
-<div id="tag_cloud">
-	<% tag_cloud Note.tag_counts, %w[s m l] do |n, css_class| %>
-	  <%= link_to n.name, note_path(n.name, project_id: @project.id), class: css_class %>
-	<% end %>
-</div>
-
-<h3>Blueprint Tags</h3>
-<div id="tag_cloud">
-	<% tag_cloud Blueprint.tag_counts, %w[s m l] do |b, css_class| %>
-	  <%= link_to b.name, blueprint_path(b.name, project_id: @project.id), class: css_class %>
-	<% end %>
+<div class="well">
+	<h3>Blueprint Tags</h3>
+	<div id="tag_cloud">
+		<% tag_cloud Blueprint.tag_counts, %w[s m l] do |b, css_class| %>
+			<%= link_to b.name, blueprint_path(b.name, project_id: @project.id), class: css_class %>
+		<% end %>
+	</div>
 </div>

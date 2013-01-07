@@ -9,8 +9,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(current_user.id)
-		
+		if params[:id].nil?
+    	@user = User.find(current_user.id)
+		else
+			@user = User.find(params[:id])
+		end
   end
   
   def update
