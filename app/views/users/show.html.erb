@@ -1,36 +1,36 @@
 <div class="row-fluid">
-	<div class="span8">	
-		<h3><%= @user.name %></h3>
+	<div class="span8">
 		<% if current_user.id == @user.id %>
-			<p>Email: <%= @user.email if @user.email %></p>
 			<% @user.cities.each do |c| %>
-			  <p>Reviewer at: <%= link_to c.name, city_path(c) %></p>
+				<div class="alert alert-info">
+					<h1>Designated Reviewer at: <%= link_to c.name, city_path(c) %></h1>
+					<p><span class="lead">Click your city to see more options.</span></p>
+				</div>
 			<% end %>
-
 			<table class="table table-bordered">
-				<thead>
 				  <tr>
-				    <td><h2>My Projects</h2><%= link_to 'New Project', new_project_path, :class => 'btn' %></td>
+				    <td><h1>My Projects<%= link_to 'New Project', new_project_path, :class => 'btn btn-primary pull-right' %></h1></td>
 				  </tr>
-				</thead>
-				<tbody>
-				  <% @user.projects.each do |p| %>
-				    <tr>
-							<td><%= link_to p.name, project_path(p) %></td>
-				    </tr>
-				  <% end %>
-				<tbody>
+					<tr>
+						<td>
+							<ul>
+								<% @user.projects.each do |p| %>
+									<li><%= link_to p.name, project_path(p), class: 'lead' %></li>
+								<% end %>						
+						</td>			  
+					</tr>
 			</table>
+		<% else %>
+			(Work in progress.) Request this user to join your group.
 		<% end %>
 	</div>
 
 <!-- In sidebar partial -->
   <div class="span4">
-    <%= render "sidebar" %>
-		<h4>Group Associations:</h4>
-		<% @user.groups.each do |g| %>
-			<li><%= link_to g.name, group_path(g.id) %></li>
-		<% end %>
+		<div class="well">
+			<h3><%= @user.name %></h3>
+		  <%= render "sidebar" %>
+		</div>
   </div>
 
 </div>
