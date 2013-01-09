@@ -22,6 +22,7 @@ Aehalo::Application.routes.draw do
 			collection { post :sort }
 		end
     resources :participants
+	  resources :tasks
   end
 
 
