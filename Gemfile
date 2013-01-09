@@ -18,6 +18,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'jquery-ui-rails'
+
 group :test do
 	gem "database_cleaner", ">= 0.9.1"
 	gem "email_spec", ">= 1.4.0"
