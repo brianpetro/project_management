@@ -3,5 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-	$('#project-content-nav').sortable()
+	$('#project-content-nav').sortable
+		axis: 'y'
+		update: ->
+			alert()
 
