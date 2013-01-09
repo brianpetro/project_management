@@ -1,8 +1,8 @@
 <div class="well well-small">
 	<h4>Contents</h4>
-	<ol id="project-content-nav" data-update-url="<%= sort_project_blueprints_url %>">
+	<ol id="project-content-nav" data-update-url="<%= sort_project_blueprints_url(@project) %>">
 		<% @blueprints.each do |b| %>
-			<li><a href="#blueprint-table-<%= b.id %>"><%= b.title %></a>
+			<%= content_tag_for :li, b do %><a href="#blueprint-table-<%= b.id %>"><%= b.title %></a>
 				<ul>
 					<% b.notes.each do |n| %>
 						<% if n.note? %>
@@ -10,7 +10,7 @@
 						<% end %>
 					<% end %>
 				</ul>
-			</li>
+			<% end %>
 		<% end %>
 	</ol>
 </div>
