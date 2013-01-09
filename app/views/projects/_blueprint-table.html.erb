@@ -4,11 +4,13 @@
 		<tr>
 			<td>
 				<div class="pull-right">
-					<i><span class="muted"><%= blueprint.author %></i>
+					<i><span class="muted"><%= blueprint.author %></span></i>
 					<% if blueprint.bpu? %>
-						<strong> Blueprint</span></strong>
+						<strong> Blueprint</strong>
 						<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %>
 						<a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a>
+					<% else %>
+						<strong> Discussion</strong>
 					<% end %>
 				</div>
 				<h4><%= link_to blueprint.title, [@project, blueprint] %></h4>
@@ -30,23 +32,23 @@
 		</tr>
 	</table>
 	<% if blueprint.bpu? %>
-	<!-- Hidden Modal -->
-	<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	    <h3 id="myModalLabel"><%= blueprint.id %></h3>
-	  </div>
-	  <div class="modal-body">
-	    <% if File.extname(blueprint.bpu.to_s) == '.pdf' %>
-				<%= link_to 'Open PDF', blueprint.bpu.to_s, class: 'btn btn-success' %>
-			<% else %>
-				<a href="<%= blueprint.bpu %>"><%= image_tag blueprint.bpu %></a>
-			<% end %>
-	  </div>
-	  <div class="modal-footer">
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-	  </div>
-	</div>
-	<!-- End Hidden Modal -->
+		<!-- Hidden Modal -->
+		<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			  <h3 id="myModalLabel"><%= blueprint.id %></h3>
+			</div>
+			<div class="modal-body">
+			  <% if File.extname(blueprint.bpu.to_s) == '.pdf' %>
+					<%= link_to 'Open PDF', blueprint.bpu.to_s, class: 'btn btn-success' %>
+				<% else %>
+					<a href="<%= blueprint.bpu %>"><%= image_tag blueprint.bpu %></a>
+				<% end %>
+			</div>
+			<div class="modal-footer">
+			  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			</div>
+		</div>
+		<!-- End Hidden Modal -->
 	<% end %>
 <% end %>
