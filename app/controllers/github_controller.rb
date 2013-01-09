@@ -1,4 +1,5 @@
 class GithubController < ApplicationController
+  load_and_authorize_resource
 
   def authorize
     github = Github.new :client_id => '6aad652b8fdf192d6a09', :client_secret => '095cdc9c9337cff345e43610b334a0db0c97a196'
