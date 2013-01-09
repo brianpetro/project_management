@@ -57,7 +57,7 @@ class BlueprintsController < ApplicationController
 
     respond_to do |format|
       if @blueprint.save
-        format.html { redirect_to [@project, @blueprint], notice: 'Blueprint was successfully created.' }
+        format.html { redirect_to [@project], notice: 'Blueprint was successfully created.' }
         format.json { render json: [@project, @blueprint], status: :created,
 				 location: [@project, @blueprint] }
       else
