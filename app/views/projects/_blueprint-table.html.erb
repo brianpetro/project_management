@@ -23,14 +23,13 @@
 				<% blueprint.notes.each do |note| %>
 					<ul id="note-table-<%= note.id %>">
 						<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %></strong></li>
-						<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add a tag.' %></li>
-						<li><i><%= best_in_place [@project, note], :tag_list, nil: 'Click to add a tag.' %></i></li>
+						<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add note text.' %></li>
 					</ul>
 				<% end %>
 			</td>
 		</tr>
 	</table>
-
+	<% if blueprint.bpu? %>
 	<!-- Hidden Modal -->
 	<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-header">
@@ -49,4 +48,5 @@
 	  </div>
 	</div>
 	<!-- End Hidden Modal -->
+	<% end %>
 <% end %>
