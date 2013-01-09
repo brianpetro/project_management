@@ -13,6 +13,7 @@ Aehalo::Application.routes.draw do
 
   resources :coordinates
 
+	resources :github
 
   resources :projects do
     resources :blueprints do
