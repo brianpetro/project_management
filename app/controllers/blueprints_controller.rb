@@ -94,4 +94,11 @@ class BlueprintsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+	def sort
+		params[:blueprint].each_with_index do |id, index|
+			@project.blueprints.update_all({position: index+1}, {id: id})
+		end
+		render nothing: true
+	end
 end
