@@ -1,6 +1,6 @@
 <div class="well well-small">
 	<h4>Contents</h4>
-	<ol id="project-content-nav">
+	<ol id="project-content-nav" data-update-url="<%= sort_project_blueprints_url %>">
 		<% @blueprints.each do |b| %>
 			<li><a href="#blueprint-table-<%= b.id %>"><%= b.title %></a>
 				<ul>
