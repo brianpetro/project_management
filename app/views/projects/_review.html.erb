@@ -17,14 +17,16 @@
 <div>
 	<ol>
 		<% @project.blueprints.each do |blueprint| %>
-			<li><h3><%= link_to 'Open', blueprint.bpu.to_s, class: 'btn' %><strong><%= blueprint.title %></strong><span class="muted"> <%= blueprint.tag_list %></span></h3>
+			<%= content_tag_for :li, blueprint do %>
+				<h3><%= link_to 'Open', blueprint.bpu.to_s, class: 'btn btn-primary btn-small' %> <%= blueprint.title %></h3>
+				<p><span class="muted lead"> <%= blueprint.tag_list %></span></p>
 				<ul class="lead">
 					<% blueprint.notes.each do |note| %>
 						<li><p><strong><%= note.note %></strong></p></li>
 						<li><p><%= note.note_text %></p></li>
 					<% end %>
 				</ul>
-			</li>
+			<% end %>
 		<% end %>
 	</ol>
 </div>
