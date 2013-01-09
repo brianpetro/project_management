@@ -3,5 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-	$('#project-content-nav').sortable(update: -> alert())
+	$('#project-content-nav').sortable()
 
