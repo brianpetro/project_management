@@ -15,7 +15,9 @@ Aehalo::Application.routes.draw do
 
 
   resources :projects do
-    resources :blueprints
+    resources :blueprints do
+			collection { post :sort }
+		end
     resources :notes do
 			collection { post :sort }
 		end
