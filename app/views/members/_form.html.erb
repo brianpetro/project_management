@@ -3,6 +3,7 @@
 
   <div class="form-inputs">
     <%= f.hidden_field :group_id, value: params[:group_id] %>
+		<%= f.label :user_id, 'Enter the name of the desired participant.' %>
     <%= f.text_field :user_id, data: {autocomplete_source: User.order(:name).map(&:name)} %>
   </div>
 
