@@ -8,7 +8,9 @@
 		<%= f.text_field :tag_list %>
 		<br>
 		<%= f.hidden_field :author, value: current_user.name %>
+		<% unless params[type: 'discussion']? %>
     <%= f.file_field :bpu %>
+		<% end %>
 	</p>
 
   <div class="form-actions">
