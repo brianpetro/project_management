@@ -49,3 +49,5 @@ gem 'acts-as-taggable-on'
 gem 'best_in_place'
 
 gem 'bootswatch-rails'
+
+gem "github_api"
