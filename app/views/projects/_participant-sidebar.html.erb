@@ -9,6 +9,9 @@
 			<li>
 				<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project) %>
 			</li>
+			<li>
+				<%= link_to 'Upload Blueprint', new_project_blueprint_path(@project, type: 'discussion') %>
+			</li>
 		</ul>
 	</div>
 	<div id="participant-list">
