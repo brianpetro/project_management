@@ -1,0 +1,7 @@
+<% @commit_list.each do |c| %>
+	<% c.sha do |sha| %>
+		<%= @github.git_data.commits.get 'brianpetro', 'aeh', sha %>
+		<br>
+		<br>
+	<% end %>
+<% end %>
