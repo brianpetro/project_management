@@ -6,5 +6,5 @@ jQuery ->
 	$('#project-content-nav').sortable
 		axis: 'y'
 		update: ->
-			alert()
+			$.post($(this).data('update-url'), $(this).sortable('serialize'))
 
