@@ -1,6 +1,6 @@
 <div class="well well-small">
 	<h4>Contents</h4>
-	<ol>
+	<ol id="project-content-nav">
 		<% @project.blueprints.each do |b| %>
 			<li><a href="#blueprint-table-<%= b.id %>"><%= b.title %></a>
 				<ul>
