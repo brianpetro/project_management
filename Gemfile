@@ -12,6 +12,7 @@ group :production do
 	gem "thin", ">= 1.5.0"
 end
 group :assets do
+	gem 'jquery-rails'
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
@@ -25,7 +26,7 @@ group :test do
 	gem "capybara", ">= 2.0.1"
 	gem 'guard-cucumber'
 end
-gem 'jquery-rails'
+
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "bootstrap-sass", ">= 2.1.1.0"
