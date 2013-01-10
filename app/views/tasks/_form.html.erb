@@ -1,4 +1,6 @@
 <%= form_for @task, remote: true do |f| %>
   <%= f.text_field :name %>
-  <%= f.submit %>
+	<%= f.hidden_field :project_id, value: @project.id %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.submit %>	
 <% end %>
