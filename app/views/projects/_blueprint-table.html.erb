@@ -23,7 +23,7 @@
 		<tr>
 		  <td>
 				<% blueprint.notes.each do |note| %>
-					<ul id="note-table-<%= note.id %>">
+					<ul id="note-table-<%= note.id %>" class="unstyled">
 						<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %></strong></li>
 						<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add note text.' %></li>
 					</ul>
