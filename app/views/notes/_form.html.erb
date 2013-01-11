@@ -19,6 +19,7 @@
       <%= builder.collection_select :blueprint_id, @project.blueprints, :id, :title, {:include_blank => 'None', :selected => @blueprint_id } %>
     </div>
   <% end %>
+	<%= f.hidden_field :user_id, value: current_user.id %>
   <div class="form-actions">
     <%= f.submit :submit %>
   </div>

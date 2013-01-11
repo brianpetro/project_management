@@ -16,6 +16,10 @@
 			<b>Note Text:</b>
 			<%= best_in_place [@project, @note], :note_text %>
 		</p>
+		<p>
+			<b>Author:</b>
+			<%= @note.user_id %>
+		</p>
 
 		<%= link_to 'Back', project_path(@project), class: 'btn btn-small' %>
 	</div>

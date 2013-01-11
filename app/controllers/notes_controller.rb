@@ -56,7 +56,7 @@ class NotesController < ApplicationController
   # POST /notes.json
   def create
     @note = @project.notes.new(params[:note])
-
+		
     respond_to do |format|
       if @note.save
         format.html { redirect_to [@project, @note], notice: 'Note was successfully created.' }
