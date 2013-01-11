@@ -24,7 +24,12 @@
 		  <td>
 				<% blueprint.notes.each do |note| %>
 					<ul id="note-table-<%= note.id %>" class="unstyled">
-						<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %></strong></li>
+						<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %>
+							<% if note.user_id? %>
+								<%= link_to 'Author', user_path(note.user_id) %>	
+							<% end %>
+						</strong> 
+						</li>
 						<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add note text.' %></li>
 					</ul>
 				<% end %>
