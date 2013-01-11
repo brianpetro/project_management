@@ -4,9 +4,6 @@
 		<%= f.label :title %>
 		<%= f.text_field :title %>
 		<br>
-		<%= f.label :tag_list, "Tags (separated by commas)" %>
-		<%= f.text_field :tag_list %>
-		<br>
 		<%= f.hidden_field :author, value: current_user.name %>
 		<% unless params[:type] == 'discussion' %>
     	<%= f.file_field :bpu %>
