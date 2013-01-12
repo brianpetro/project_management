@@ -51,3 +51,5 @@ gem 'best_in_place'
 gem 'bootswatch-rails'
 
 gem "github_api"
+
+gem 'newrelic_rpm'
