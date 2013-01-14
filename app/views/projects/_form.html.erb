@@ -1,9 +1,13 @@
-<%= form_for @project do |f| %>
+<%= simple_form_for @project do |f| %>
 
   <div class="form-inputs">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.input :name %>
   </div>
+	<% if current_user.has_role? :admin %>
+		<div class="form-inputs">
+		  <%= f.input :sealed %>
+		</div>
+	<% end %>
   <%= f.fields_for :participants do |builder| %>
     <div class="form-inputs">
       <%= builder.hidden_field :user_id, value: current_user.name %>

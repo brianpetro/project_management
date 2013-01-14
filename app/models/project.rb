@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :id, :name, :participants_attributes
+  attr_accessible :id, :name, :participants_attributes, :sealed
   
 	# Products of a project
   has_many :blueprints
