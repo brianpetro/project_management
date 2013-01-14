@@ -38,10 +38,10 @@
 	</table>
 	<% if blueprint.bpu? %>
 		<!-- Hidden Modal -->
-		<div id="myModal-<%= blueprint.title %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-header">
 			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			  <h3 id="myModalLabel"><%= blueprint.id %></h3>
+			  <h3 id="myModalLabel"><%= blueprint.title %></h3>
 			</div>
 			<div class="modal-body">
 			  <% if File.extname(blueprint.bpu.to_s) == '.pdf' %>
