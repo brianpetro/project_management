@@ -16,4 +16,15 @@
 	</ul>
 </p>
 
+<strong>Notes:</strong><%= link_to 'Add Note', new_project_note_path(@project, :blueprint_id => @blueprint.id), :class => 'btn' %>
+<ul id="notes" data-update-url="<%= sort_project_notes_url %>">
+	<% @notes.each do |note| %>
+		<%= content_tag_for :li, note do %>
+			<span class="handle">[sort]</span>
+			<strong><%= best_in_place [@project, note], :note %></strong> <br>
+			<%= best_in_place [@project, note], :note_text %>
+		<% end %>
+	<% end %> 
+</ul>
+
 <%= link_to 'Back to Project', project_path(@project), :class => 'btn' %>
