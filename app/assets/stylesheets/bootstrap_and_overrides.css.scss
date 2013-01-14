@@ -1,7 +1,7 @@
-// Example using 'cerulean' bootswatch
+// Example using 'readable' bootswatch
 //
-// First import cerulean variables
-@import "bootswatch/cerulean/variables";
+// First import readable variables
+@import "bootswatch/readable/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -13,7 +13,7 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 // And finally bootswatch style itself
-@import "bootswatch/cerulean/bootswatch";
+@import "bootswatch/readable/bootswatch";
 
 
 // Autocomplete ryans bates css
