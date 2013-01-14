@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130111015224) do
+ActiveRecord::Schema.define(:version => 20130114170943) do
 
   create_table "blueprints", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20130111015224) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "sealed"
   end
 
   create_table "reviewers", :force => true do |t|
