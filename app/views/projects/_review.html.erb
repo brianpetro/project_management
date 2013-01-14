@@ -3,8 +3,8 @@
 	<ol>
 		<% @project.blueprints.each do |blueprint| %>
 			<%= content_tag_for :li, blueprint do %>
-				<h3><%= link_to 'Open', blueprint.bpu.to_s, class: 'btn btn-primary btn-small' %> <%= blueprint.title %></h3>
-				<p><span class="muted lead"> <%= blueprint.tag_list %></span></p>
+				<h4><%= link_to 'Open', blueprint.bpu.to_s, class: 'btn btn-primary btn-mini' %> <%= blueprint.title %></h4>
+				<p><span class="muted"> <%= blueprint.tag_list %></span></p>
 				<ul class="unstyled">
 					<% blueprint.notes.each do |note| %>
 						<li><p><strong><%= note.note %></strong></p></li>
