@@ -1,19 +1,4 @@
-<p>Use this partial to arrange project show for review</p>
-<div>
-	<ol>
-		<% @project.blueprints.each do |blueprint| %>
-			<li><p><strong><%= blueprint.title %></strong><span class="muted"> <%= blueprint.tag_list %></span></p>
-				<ul>
-					<% blueprint.notes.each do |note| %>
-						<li><p><%= note.note %><span class="muted"> <%= blueprint.tag_list %></span></p></li>
-					<% end %>
-				</ul>
-			</li>
-		<% end %>
-	</ol>
-</div>
-
-
+<p>This is what reviewers of the project will see.</p>
 <div>
 	<ol>
 		<% @project.blueprints.each do |blueprint| %>
