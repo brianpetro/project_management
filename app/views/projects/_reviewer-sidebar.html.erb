@@ -4,3 +4,16 @@
 	<li>Only visible after 'sign and seal'</li>
 </ul>
 
+<div class="well well-small">
+	<h4>Contents</h4>
+	<ol>
+		<% @blueprints.each do |b| %>
+			<%= content_tag_for :li, b do %>
+				<a href="#blueprint-table-<%= b.id %>">
+					<%= b.title %>
+				</a>
+			<% end %>
+		<% end %>
+	</ol>
+</div>
+
