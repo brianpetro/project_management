@@ -5,7 +5,7 @@
 			<%= content_tag_for :li, blueprint do %>
 				<h3><%= link_to 'Open', blueprint.bpu.to_s, class: 'btn btn-primary btn-small' %> <%= blueprint.title %></h3>
 				<p><span class="muted lead"> <%= blueprint.tag_list %></span></p>
-				<ul class="lead">
+				<ul class="unstyled">
 					<% blueprint.notes.each do |note| %>
 						<li><p><strong><%= note.note %></strong></p></li>
 						<li><p><%= note.note_text %></p></li>
