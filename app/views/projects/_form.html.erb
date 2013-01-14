@@ -6,7 +6,7 @@
   </div>
   <%= f.fields_for :participants do |builder| %>
     <div class="form-inputs">
-      <%= builder.hidden_field :user_id, :value => current_user.id %>
+      <%= builder.hidden_field :user_id, value: current_user.name %>
     </div>
   <% end %>
 
