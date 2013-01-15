@@ -13,7 +13,7 @@
 
 		<% @cities.each do |city| %>
 			<tr>
-				<td><%= city.name %></td>
+				<td><%= link_to city.name, city_path(city.id) %></td>
 				<td><%= city.seals.count %></td>
 				<% if can? :manage, @city %>
 					<td>
