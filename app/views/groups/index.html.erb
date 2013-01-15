@@ -1,30 +1,20 @@
 <div class="row-fluid">
 	<div class="span8">
-		<!--<% unless current_user.nil? %>
-		<h1>Listing groups</h1>
-
-		<table class="table">
-			<tr>
-				<th>Name</th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-
-		<% @groups.each do |group| %>
-			<tr>
-				<td><%= group.name %></td>
-				<td><%= link_to 'Show', group %></td>
-				<td><%= link_to 'Edit', edit_group_path(group) %></td>
-				<td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-			</tr>
+		<% unless current_user.nil? %>
+			<% if current_user.has_role? :gold %>
+				<br>
+				<div class="well">
+					<%= link_to 'New Group', new_group_path, :class => 'btn btn-block' %>
+				</div>
+				<ul>
+					<% current_user.groups.each do |g| %>
+						<li><%= link_to g.name, group_path(g.id) %></li>
+					<% end %>
+				</ul>			
+			<% else %>
+				<p>Users with a group plan may create a group.</p>
+			<% end %>
 		<% end %>
-		</table>
-
-		<br />
-
-		<%= link_to 'New Group', new_group_path, :class => 'btn' %>
-		<% end %>-->
 	</div>
 	<div class="span4">
 		<%= render 'sidebar_index' %>
