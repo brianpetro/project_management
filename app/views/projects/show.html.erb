@@ -1,7 +1,9 @@
 <div class="row">
 		<% unless current_user.has_role? :admin %>
 			<% unless @project.sealed == true %>
-				<%= render 'participant' %>	
+				<% if current_user.is_reviewer_of_project?(@project.id) or current_user.is_participant?(@project.id) %>
+					<%= render 'participant' %>
+				<% end %>
 			<% else %>
 				<% if current_user.is_reviewer_of_project?(@project.id) or current_user.is_participant?(@project.id) %>
 					<div class="span8">
