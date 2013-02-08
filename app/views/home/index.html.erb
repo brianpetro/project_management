@@ -80,16 +80,13 @@
 
  
 <!-- Login Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="myModal" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Login to A&E Halo</h3>
 	</div>
-	<div class="modal-body">
+	<div class="modal-body" style="max-height:420px;">
 		<%= render 'devise/sessions/new', locals: {resource: resource} %>
-	</div>
-	<div class="modal-footer">
-
 	</div>
 </div>
 
