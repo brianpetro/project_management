@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
 		@blueprints = @project.blueprints.order("position")
+		@blueprint = Blueprint.new
 		@user = @project.users.each
     respond_to do |format|
       format.html # show.html.erb
