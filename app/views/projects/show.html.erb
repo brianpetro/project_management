@@ -52,3 +52,14 @@
 		<%= render 'participants/form' %>
 	</div>
 </div>
+
+<!-- Note Modal -->
+<div id="newNote" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Add Note</h3>
+	</div>
+	<div class="modal-body" style="max-height:450px;">
+		<%= render 'notes/form' %>
+	</div>
+</div>
