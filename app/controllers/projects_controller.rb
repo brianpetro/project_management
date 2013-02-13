@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
 		@blueprints = @project.blueprints.order("position")
 		@blueprint = Blueprint.new
 		@participant = Participant.new
+		@note = Note.new
 		@user = @project.users.each
     respond_to do |format|
       format.html # show.html.erb
