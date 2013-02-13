@@ -8,6 +8,7 @@ class Project < ActiveRecord::Base
   has_many :users, :through => :participants, :uniq => true
   accepts_nested_attributes_for :participants
   accepts_nested_attributes_for :blueprints
+  accepts_nested_attributes_for :notes
 
 	# For Sign Seal Submit to cities
 	has_one :seal, :dependent => :destroy
