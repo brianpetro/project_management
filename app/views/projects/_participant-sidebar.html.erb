@@ -7,17 +7,17 @@
 		</a>
 		<ul class="dropdown-menu">
 			<li>
-				<a href="#myModal" role="button" class="" data-toggle="modal">Upload Blueprint</a> 
+				<a href="#newBlueprint" role="button" class="" data-toggle="modal">Upload Blueprint</a> 
 			</li>
 			<li>
-				<%= link_to 'Start Discussion', new_project_blueprint_path(@project, type: 'discussion') %>
+				<a href="#newDiscussion" role="button" class="" data-toggle="modal">Start Discussion</a>
 			</li>
 		</ul>
 	</div>
 	<div id="participant-list">
 		<br>
 		<strong>Participants:</strong>
-		<%= link_to 'Add Participant', new_project_participant_path(@project), class: 'btn btn-small' %>
+		<a href="#newParticipant" role="button" class="btn btn-small btn-primary" data-toggle="modal">Add Participant</a>
 		<ol>
 			<% @project.users.each do |user| %>
 				<li><%= link_to user.name, user_path(user.id) %></li>

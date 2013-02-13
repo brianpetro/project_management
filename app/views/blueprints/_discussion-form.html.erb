@@ -1,0 +1,13 @@
+<%= form_for [@project, @blueprint] do |f| %>
+
+	<p>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		<br>
+		<%= f.hidden_field :author, value: current_user.name %>
+	</p>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

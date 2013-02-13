@@ -21,12 +21,34 @@
 </div>
 
 <!-- Upload Modal -->
-<div id="myModal" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+<div id="newBlueprint" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Upload to A&E Halo</h3>
 	</div>
 	<div class="modal-body" style="max-height:450px;">
 		<%= render 'blueprints/form' %>
+	</div>
+</div>
+
+<!-- Discussion Modal -->
+<div id="newDiscussion" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Start Discussion</h3>
+	</div>
+	<div class="modal-body" style="max-height:450px;">
+		<%= render 'blueprints/discussion-form' %>
+	</div>
+</div>
+
+<!-- Participant Modal -->
+<div id="newParticipant" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Add Participant</h3>
+	</div>
+	<div class="modal-body" style="max-height:450px;">
+		<%= render 'participants/form' %>
 	</div>
 </div>
