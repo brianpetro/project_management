@@ -1,3 +1,26 @@
+#loginModal {
+	color: #ffffff;
+	background-color: #AAAAAA;
+}
+#loginModal a {
+	color: #333333;
+}
 #loginModal h3 {
 	color: #000000;
+}
+#loginModal div.email_input {
+	float:left;
+	width:50%;
+}
+#loginModal div.password_input {
+	float:right;
+	width:50%;
+}
+#loginModal div.login_extras {
+	float:left;
+	width:50%;
+}
+#loginModal div.login_submit {
+	float:right;
+	width:50%;
 }
