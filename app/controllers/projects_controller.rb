@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
 		@participant = Participant.new
 		@note = Note.new
 		@user = @project.users.each
+		blueprint = @note.coordinates.build
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
