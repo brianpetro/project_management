@@ -1,0 +1,12 @@
+<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+  <div>
+		<%= f.input :email, :autofocus => true, wrapper_html: { class: 'email_input' } %>
+		<%= f.input :password, wrapper_html: { class: 'password_input' } %>
+  </div>
+  <div>
+		<%= f.input :remember_me, wrapper_html: { class: 'login_extras' }, :as => :boolean if devise_mapping.rememberable? %>
+		<a href="/users/password/new">Forgot your password?</a>
+		<%= f.button :submit, "Sign in", :class => 'btn-inverse', wrapper_html: { class: 'login_sumbit' } %>
+	</div>
+<% end %>
+
