@@ -24,13 +24,13 @@
 		        <%= yield %>
 		        <% unless user_signed_in? %>
 							<!-- Login Modal -->
-							<div id="loginModal" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+							<div id="loginModal" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><img src="/images/key.png" ></button>
 									<h3 id="myModalLabel">Log Into A&E Halo</h3>
 								</div>
 								<div class="modal-body" style="max-height:450px;">
-									<%= render 'devise/sessions/new', locals: {resource: resource} %>
+									<%= render 'devise/sessions/new-modal', locals: {resource: resource} %>
 								</div>
 							</div>
 						<% end %>
