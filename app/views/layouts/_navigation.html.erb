@@ -1,6 +1,7 @@
 <%= link_to "A&E Halo", root_path, :class => 'brand' %>
 <ul class="nav">
   <% if user_signed_in? %>
+  	<li><a><i class="icon-cog icon-white"></i></a></li>
     <% if current_user.has_role? :admin %>
       <li>
         <%= link_to 'Admin', users_path %>

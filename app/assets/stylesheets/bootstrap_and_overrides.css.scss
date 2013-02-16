@@ -1,7 +1,7 @@
-// Example using 'readable' bootswatch
+// Example using 'cosmo' bootswatch
 //
-// First import readable variables
-@import "bootswatch/readable/variables";
+// First import cosmo variables
+@import "bootswatch/cosmo/variables";
 
 // Then bootstrap itself
 @import "bootstrap";
@@ -13,7 +13,7 @@ body { padding-top: 60px; }
 @import "bootstrap-responsive";
 
 // And finally bootswatch style itself
-@import "bootswatch/readable/bootswatch";
+@import "bootswatch/cosmo/bootswatch";
 
 
 // Autocomplete ryans bates css
