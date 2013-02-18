@@ -9,7 +9,7 @@
 			<% end %>
 			<table class="table table-bordered">
 				  <tr>
-				    <td><h1>My Halo<%= link_to 'Start Project', new_project_path, :class => 'btn btn-primary pull-right' %></h1></td>
+				    <td><h1>My Halo<a href="#newProject" role="button" class="btn btn-primary pull-right" data-toggle="modal">Create Project</a></h1></td>
 				  </tr>
 					<tr>
 						<td>
@@ -29,4 +29,15 @@
   <div class="span4">
 	  <%= render "sidebar" %>
   </div>
+</div>
+
+<!-- New Project Modal -->
+<div id="newProject" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Create Project</h3>
+	</div>
+	<div class="modal-body" style="max-height:450px;">
+		<%= render 'projects/form' %>
+	</div>
 </div>
