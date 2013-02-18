@@ -53,3 +53,5 @@ gem 'bootswatch-rails'
 gem "github_api"
 
 gem 'newrelic_rpm'
+
+gem 'prawn'
