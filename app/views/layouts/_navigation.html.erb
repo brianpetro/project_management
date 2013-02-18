@@ -1,24 +1,57 @@
-<%= link_to "A&E Halo", root_path, :class => 'brand' %>
 <ul class="nav">
-  <% if user_signed_in? %>
-  	<li><a><i class="icon-cog icon-white"></i></a></li>
-    <% if current_user.has_role? :admin %>
-      <li>
-        <%= link_to 'Admin', users_path %>
-      </li>
-    <% end %>
-		<li class="dropdown">
-		  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		    Projects
+	<li class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<span class="">
+				A&E Halo
 				<b class="caret"></b>
-			</a>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<% current_user.projects.each do |p| %>
-		    <li><%= link_to p.name, project_path(p) %></li>
+			</span>
+		</a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<% if user_signed_in? %>
+				<li>
+					<%= link_to 'Cities', cities_path %>
+				</li>
+				<li>
+					<%= link_to 'Groups', groups_path %>
+				</li>
+			<% end %>
+		</ul>
+	</li>
+	<li class="dropdown">
+	  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	    Projects
+			<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<% current_user.projects.each do |p| %>
+	    	<li>
+	    		<%= link_to p.name, project_path(p) %>
+	    	</li>
+			<% end %>
+		</ul>
+	</li>
+</ul>
+<ul class="nav pull-right">
+  <% if user_signed_in? %>
+  	<li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		  	<i class="icon-cog icon-white"></i>
+		  	<b class="caret"></b>
+		  </a>
+		  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		    <% if current_user.has_role? :admin %>
+				  <li>
+				    <%= link_to 'Admin', users_path %>
+				  </li>
 				<% end %>
+				<li>
+					<%= link_to 'Edit account', edit_user_registration_path %>
+				</li>
+				<li>
+					<%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
+				</li>	
 			</ul>
 		</li>
-
   <% else %>
     <li>
     	<a href="#loginModal" role="button" class="" data-toggle="modal">Login</a> 
@@ -27,17 +60,4 @@
     	<a href="http://aehalo.com" role="button" class="" data-toggle="modal">Company Home</a> 
     </li>
   <% end %>
-</ul>
-<ul class="nav pull-right">
-	<% if user_signed_in? %>
-		<li>
-			<%= link_to 'Groups', groups_path, :class => '' %>
-		</li>
-		<li>
-			<%= link_to 'Cities', cities_path %>
-		</li>
-		<li>
-			<%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>        
-		</li>
-	<% end %>
 </ul>
