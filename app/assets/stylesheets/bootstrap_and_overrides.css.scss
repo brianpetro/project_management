@@ -15,14 +15,14 @@ body { padding-top: 60px; }
 @import "bootswatch/cosmo/bootswatch";
 
 //BOOTSTRAP OVERRIDES
-// Background
 body {
 	background-image:url("https://dl.dropbox.com/s/kzobu7ajnmzjxnp/noisy_grid.png?token_hash=AAEQC1bRsD3g_5J-Zca_Rk5oKTchiZ_g_Mgzvlcr3ltrcw&dl=1");
-	background-repeat:repeat;
+	background-repeat:repeat; // Add background
+	color: #222222; // Make default text darker
 }
-//Well Background Color
+
 .well {
-    background-color: #DDDDDD;
+    background-color: #DDDDDD; // Well Background Color
 }
 
 
