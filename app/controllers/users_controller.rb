@@ -14,6 +14,8 @@ class UsersController < ApplicationController
 		else
 			@user = User.find(params[:id])
 		end
+		@project = Project.new
+		user = @project.participants.build
   end
   
   def update
