@@ -26,6 +26,10 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
+      format.pdf do
+		    pdf = ProjectPdf.new(@project)
+		    send_data pdf.render, filename: "project_#{@project.name}.pdf"
+		  end
     end
   end
 
