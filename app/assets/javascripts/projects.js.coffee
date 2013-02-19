@@ -9,4 +9,4 @@ jQuery ->
 			$.post($(this).data('update-url'), $(this).sortable('serialize'))
 
 	$('#hideTag').click ->
-		$('#tags').hide()
+		$('#tags').toggle()
