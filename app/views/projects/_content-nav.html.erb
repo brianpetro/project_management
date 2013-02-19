@@ -4,7 +4,7 @@
 	<ol id="project-content-nav" data-update-url="<%= sort_project_blueprints_url(@project) %>">
 		<% @blueprints.each do |b| %>
 			<%= content_tag_for :li, b do %>
-				<%= b.title %>
+				<%= link_to b.title, '#', class: '' %>
 			<% end %>
 		<% end %>
 	</ol>
