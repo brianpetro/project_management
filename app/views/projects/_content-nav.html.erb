@@ -1,6 +1,6 @@
 <div id="contents" class="well well-small">
 	<h3>Contents</h4>
-	<p><span class=""><i>Drag titles to change display order.</i></span></p>
+	<p><span class=""><i>Click to display contents. Drag to change the display order.</i></span></p>
 	<ol id="project-content-nav" data-update-url="<%= sort_project_blueprints_url(@project) %>">
 		<% @blueprints.each do |b| %>
 			<%= content_tag_for :li, b do %>
