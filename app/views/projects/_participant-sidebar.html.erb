@@ -1,3 +1,16 @@
+<div class="dropdown">
+	<a href="#" class="dropdown-toggle btn btn-block btn-inverse" data-toggle="dropdown">
+		<span class="">
+			Toggle Views
+			<b class="caret"></b>
+		</span>
+	</a>
+	<ul class="dropdown-menu unstyled" role="menu" aria-labelledby="dLabel">
+			<li>
+				<%= link_to 'Browse Tags', '#', id: 'hideTag' %>
+			</li>
+	</ul>
+</div>
 <div class="well">
 	<p><h3><%= best_in_place @project, :name %><sub><i class="icon-pencil"></i></sub></h3></p>
 	<div class="btn-group btn-block">
