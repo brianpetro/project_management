@@ -31,10 +31,9 @@ body {
     background-image: url("https://dl.dropbox.com/s/pniaq5mv0db1zpw/dark-bg.png?token_hash=AAHgZWMoFcYzWXfXNuPDLlj7XCWZUED0O_sxeaeD43vhfA&dl=1");
     color: #EEEEEE; // Make default text lighter
 }
-li.dropdown li a {
-    color: #000000;
+.dropdown-menu li a {
+	color: #000000; // dropdown text color
 }
-
 //OTHER
 // Autocomplete ryans bates css
 ul.ui-autocomplete {
