@@ -2,7 +2,7 @@
 	<h3><%= @user.name %></h3>
 </div>
 <div class="well">
-	<h3>User Page</h4>
+	<h3>User Page</h3>
 	<ul>
 		<li>Displays the projects the current user is participating in.</li>
 		<li>A user is granted access only to his/her 'User Page.'</li>
@@ -10,7 +10,7 @@
 	</ul>
 </div>
 <div class="well">
-	<h3>My Groups:</h4>
+	<h3>My Groups:</h3>
 	<% current_user.groups.each do |g| %>
 		<li><%= link_to g.name, group_path(g.id) %></li>
 	<% end %>

@@ -1,12 +1,12 @@
 <div class="well well-small">
-	<h4>Contents</h4>
+	<h3>Contents</h4>
 	<p><span class=""><i>Drag titles to change display order.</i></span></p>
 	<ol id="project-content-nav" data-update-url="<%= sort_project_blueprints_url(@project) %>">
 		<% @blueprints.each do |b| %>
 			<%= content_tag_for :li, b do %>
-				<a href="#blueprint-table-<%= b.id %>">
-					<%= b.title %>
-				</a>
+
+					<%= link_to b.title, "#blueprint-table-#{b.id}" %>
+
 			<% end %>
 		<% end %>
 	</ol>
