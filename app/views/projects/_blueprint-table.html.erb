@@ -1,7 +1,14 @@
 <p><span class="lead">Click-to-edit is enabled on all notes and tags.</span><br><span class=""><i>Use commas to seperate tags.</i></span></p>
 <% @blueprints.each do |blueprint| %>
+	<script>
+		jQuery(function() {});
+
+		$('#blueprint_<%= blueprint.id %>').click(function() {
+			return $('#blueprint-table-<%= blueprint.id %>').toggle();
+		});
+	</script>
 	<div class="well well-small">
-		<table id="blueprint-table-<%= blueprint.id %>" class="table table-bordered">
+		<table id="blueprint-table-<%= blueprint.id %>" class="table table-bordered" style="display: none;">
 			<tr class="table-row">
 				<td>
 					<div class="pull-right">
