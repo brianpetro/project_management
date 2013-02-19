@@ -1,59 +1,61 @@
 <p><span class="lead">Click-to-edit is enabled on all notes and tags.</span><br><span class=""><i>Use commas to seperate tags.</i></span></p>
 <% @blueprints.each do |blueprint| %>
-	<table id="blueprint-table-<%= blueprint.id %>" class="table table-bordered">
-		<tr class="table-row">
-			<td>
-				<div class="pull-right">
-					<i><span class="muted"><%= blueprint.author %></span></i>
-					<% if blueprint.bpu? %>
-						<strong> Blueprint</strong>
-						<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %>
-						<a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a>
+	<div class="well">
+		<table id="blueprint-table-<%= blueprint.id %>" class="table table-bordered">
+			<tr class="table-row">
+				<td>
+					<div class="pull-right">
+						<i><span class="muted"><%= blueprint.author %></span></i>
+						<% if blueprint.bpu? %>
+							<strong> Blueprint</strong>
+							<%= link_to 'Overview', project_blueprint_path(@project, blueprint.id), class: 'btn' %>
+							<a href="#myModal-<%= blueprint.id %>" role="button" class="btn" data-toggle="modal">Preview</a>
+						<% else %>
+							<strong> Discussion</strong>
+						<% end %>
+					</div>
+					<h3><%= link_to blueprint.title, [@project, blueprint] %></h3>
+					<i><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></i></li>
+				</td>
+			</tr>
+			<tr class="table-row">
+				<th>Notes <a href="#newNote" role="button" class="btn btn-small" data-toggle="modal">Add Note</a></th>
+			</tr>
+			<tr class="table-row">
+				<td>
+					<% blueprint.notes.each do |note| %>
+						<ul id="note-table-<%= note.id %>" class="unstyled">
+							<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %>
+								<% if note.user_id? %>
+									<%= link_to 'Author', user_path(note.user_id) %>	
+								<% end %>
+							</strong> 
+							</li>
+							<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add note text.' %></li>
+						</ul>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+		<% if blueprint.bpu? %>
+			<!-- Hidden Modal -->
+			<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+					<h3 id="myModalLabel"><%= blueprint.title %></h3>
+				</div>
+				<div class="modal-body">
+					<% if File.extname(blueprint.bpu.to_s) == '.pdf' %>
+						<%= link_to 'Open PDF', blueprint.bpu.to_s, class: 'btn btn-success' %>
 					<% else %>
-						<strong> Discussion</strong>
+						<a href="<%= blueprint.bpu %>"><%= image_tag blueprint.bpu %></a>
 					<% end %>
 				</div>
-				<h3><%= link_to blueprint.title, [@project, blueprint] %></h3>
-				<i><%= best_in_place [@project, blueprint], :tag_list, nil: 'Click to add a tag.' %></i></li>
-			</td>
-		</tr>
-		<tr class="table-row">
-			<th>Notes <a href="#newNote" role="button" class="btn btn-small" data-toggle="modal">Add Note</a></th>
-		</tr>
-		<tr class="table-row">
-		  <td>
-				<% blueprint.notes.each do |note| %>
-					<ul id="note-table-<%= note.id %>" class="unstyled">
-						<li><strong><%= best_in_place [@project, note], :note, nil: 'Click to add a note title.' %>
-							<% if note.user_id? %>
-								<%= link_to 'Author', user_path(note.user_id) %>	
-							<% end %>
-						</strong> 
-						</li>
-						<li><%= best_in_place [@project, note], :note_text, nil: 'Click to add note text.' %></li>
-					</ul>
-				<% end %>
-			</td>
-		</tr>
-	</table>
-	<% if blueprint.bpu? %>
-		<!-- Hidden Modal -->
-		<div id="myModal-<%= blueprint.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			  <h3 id="myModalLabel"><%= blueprint.title %></h3>
+				<div class="modal-footer">
+					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				</div>
 			</div>
-			<div class="modal-body">
-			  <% if File.extname(blueprint.bpu.to_s) == '.pdf' %>
-					<%= link_to 'Open PDF', blueprint.bpu.to_s, class: 'btn btn-success' %>
-				<% else %>
-					<a href="<%= blueprint.bpu %>"><%= image_tag blueprint.bpu %></a>
-				<% end %>
-			</div>
-			<div class="modal-footer">
-			  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-			</div>
-		</div>
-		<!-- End Hidden Modal -->
-	<% end %>
+			<!-- End Hidden Modal -->
+		<% end %>
+	</div>
 <% end %>
