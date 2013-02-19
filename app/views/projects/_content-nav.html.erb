@@ -1,4 +1,4 @@
-<div class="well well-small">
+<div id="contents" class="well well-small">
 	<h3>Contents</h4>
 	<p><span class=""><i>Drag titles to change display order.</i></span></p>
 	<ol id="project-content-nav" data-update-url="<%= sort_project_blueprints_url(@project) %>">
@@ -9,7 +9,7 @@
 		<% end %>
 	</ol>
 </div>
-<div id="tags" class="well well-small">
+<div id="browseTags" class="well well-small">
 	<h3>Browse Tags</h3>
 	<div id="tag_cloud">
 		<% tag_cloud Blueprint.tag_counts, %w[s m l] do |b, css_class| %>

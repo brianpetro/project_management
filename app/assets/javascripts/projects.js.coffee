@@ -8,5 +8,14 @@ jQuery ->
 		update: ->
 			$.post($(this).data('update-url'), $(this).sortable('serialize'))
 
-	$('#hideTag').click ->
-		$('#tags').toggle()
+	$('#hideBrowseTags').click ->
+		$('#browseTags').toggle 400
+		
+	$('#hideContents').click ->
+		$('#contents').toggle 400
+		
+	$('#hideInfo').click ->
+		$('#info').toggle 400
+		
+	$('#hideProjectBox').click ->
+		$('#projectBox').toggle 400

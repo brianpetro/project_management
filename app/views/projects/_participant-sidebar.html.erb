@@ -7,11 +7,20 @@
 	</a>
 	<ul class="dropdown-menu unstyled" role="menu" aria-labelledby="dLabel">
 			<li>
-				<%= link_to 'Browse Tags', '#', id: 'hideTag' %>
+				<%= link_to @project.name, '#', id: 'hideProjectBox' %>
+			</li>
+			<li>
+				<%= link_to 'Browse Tags', '#', id: 'hideBrowseTags' %>
+			</li>
+			<li>
+				<%= link_to 'Contents', '#', id: 'hideContents' %>
+			</li>
+			<li>
+				<%= link_to 'Information', '#', id: 'hideInfo' %>
 			</li>
 	</ul>
 </div>
-<div class="well">
+<div id="projectBox" class="well">
 	<p><h3><%= best_in_place @project, :name %><sub><i class="icon-pencil"></i></sub></h3></p>
 	<div class="btn-group btn-block">
 		<a class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" href="#">
@@ -38,7 +47,7 @@
 		</ol>
 	</div>
 </div>
-<div class="well well-small">
+<div id="info" class="well well-small">
 	<h3>Project Page (PARTICIPANT)</h3>
 	<ul>
 		<li>This page acts as a hub for all aspects of a project.</li>
