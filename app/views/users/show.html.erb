@@ -46,15 +46,17 @@
 	<div id="viewUser" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3 id="myModalLabel">@user.name</h3>
+			<h3 id="myModalLabel"><%= @user.name %></h3>
 		</div>
 		<div class="modal-body" style="max-height:450px;">
-			<span>
-				<%= @user.id %>
-				<%= @user.name %>
-				<%= @user.email %>
-				<%= link_to 'Edit Account', edit_user_registration_path, class: 'btn' %>
-			</span>
+			<p>
+				<span class="userInfo">
+					ID: <strong><%= @user.id %></strong><br>
+					Name: <strong><%= @user.name %></strong><br>
+					Email: <strong><%= @user.email %></strong><br><br>
+					<%= link_to 'Edit Account', edit_user_registration_path, class: 'btn btn-success' %>
+				</span>
+			</p>
 		</div>
 	</div>
 <% end %>
