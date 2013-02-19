@@ -22,7 +22,14 @@ body {
 }
 
 .well {
-    background-color: #DDDDDD; // Well Background Color
+    //background-color: #DDDDDD; // Well Background Color
+    background-image: url("https://dl.dropbox.com/s/pniaq5mv0db1zpw/dark-bg.png?token_hash=AAHgZWMoFcYzWXfXNuPDLlj7XCWZUED0O_sxeaeD43vhfA&dl=1");
+    color: #EEEEEE; // Make default text lighter
+}
+.well p, .well h3 {
+    //background-color: #DDDDDD; // Well Background Color
+    background-image: url("https://dl.dropbox.com/s/pniaq5mv0db1zpw/dark-bg.png?token_hash=AAHgZWMoFcYzWXfXNuPDLlj7XCWZUED0O_sxeaeD43vhfA&dl=1");
+    color: #EEEEEE; // Make default text lighter
 }
 li.dropdown li a {
     color: #000000;
