@@ -1,6 +1,8 @@
 <div class="well">
 	<h3><%= @user.name %></h3>
-	<a href="#viewUser" role="button" class="btn btn-primary btn-block" data-toggle="modal">Account Details</a>
+	<% if current_user.id == @user.id %>
+		<a href="#viewUser" role="button" class="btn btn-primary btn-block" data-toggle="modal">Account Details</a>
+	<% end %>
 </div>
 <div class="well">
 	<h3>User Page</h3>
