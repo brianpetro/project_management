@@ -1,0 +1,51 @@
+<div>
+	<ul class="inline pull-right">
+		<li>
+			<div class="btn-group btn-block">
+				<a class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" href="#">
+					Contribute to Project
+					<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu">
+					<li>
+						<a href="#newBlueprint" role="button" class="" data-toggle="modal">Upload Blueprint</a> 
+					</li>
+					<li>
+						<a href="#newDiscussion" role="button" class="" data-toggle="modal">Start Discussion</a>
+					</li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<a href="#newParticipant" role="button" class="btn btn-primary" data-toggle="modal">Add Participant</a>
+		</li>
+		<li>
+			<%= link_to "Printable Project (PDF)", project_path(@project, format: "pdf"), class: 'btn btn-info' %>
+		</li>
+		<li>
+			<a href="#read-review" role="button" class="btn" data-toggle="modal">Preview</a>
+		</li>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle btn btn-inverse" data-toggle="dropdown">
+				<span class="">
+					Toggle Views
+					<b class="caret"></b>
+				</span>
+			</a>
+			<ul class="dropdown-menu unstyled" role="menu" aria-labelledby="dLabel">
+					<li>
+						<%= link_to @project.name, '#', id: 'hideProjectBox' %>
+					</li>
+					<li>
+						<%= link_to 'Browse Tags', '#', id: 'hideBrowseTags' %>
+					</li>
+					<li>
+						<%= link_to 'Contents', '#', id: 'hideContents' %>
+					</li>
+					<li>
+						<%= link_to 'Information', '#', id: 'hideInfo' %>
+					</li>
+			</ul>
+		</li>
+	</ul>
+</div>

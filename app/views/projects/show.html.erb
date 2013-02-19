@@ -1,5 +1,5 @@
 <div class="row">
-		<p><%= link_to "Printable Project (PDF)", project_path(@project, format: "pdf") %></p>
+		<%= render "top-bar" %>
 		<% unless current_user.has_role? :admin %>
 			<% unless @project.sealed == true %>
 				<% if current_user.is_reviewer_of_project?(@project.id) or current_user.is_participant?(@project.id) %>
@@ -22,7 +22,7 @@
 </div>
 
 <!-- Upload Modal -->
-<div id="newBlueprint" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+<div id="newBlueprint" class="modal hide fade alert alert-info well" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Upload to A&E Halo</h3>
@@ -33,7 +33,7 @@
 </div>
 
 <!-- Discussion Modal -->
-<div id="newDiscussion" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+<div id="newDiscussion" class="modal hide fade alert alert-info well" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Start Discussion</h3>
@@ -44,7 +44,7 @@
 </div>
 
 <!-- Participant Modal -->
-<div id="newParticipant" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+<div id="newParticipant" class="modal hide fade alert alert-info well" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Add Participant</h3>
@@ -55,7 +55,7 @@
 </div>
 
 <!-- Note Modal -->
-<div id="newNote" class="modal hide fade alert alert-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+<div id="newNote" class="modal hide fade alert alert-info well" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Add Note</h3>

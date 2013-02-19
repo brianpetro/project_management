@@ -1,45 +1,10 @@
-<div class="dropdown">
-	<a href="#" class="dropdown-toggle btn btn-block btn-inverse" data-toggle="dropdown">
-		<span class="">
-			Toggle Views
-			<b class="caret"></b>
-		</span>
-	</a>
-	<ul class="dropdown-menu unstyled" role="menu" aria-labelledby="dLabel">
-			<li>
-				<%= link_to @project.name, '#', id: 'hideProjectBox' %>
-			</li>
-			<li>
-				<%= link_to 'Browse Tags', '#', id: 'hideBrowseTags' %>
-			</li>
-			<li>
-				<%= link_to 'Contents', '#', id: 'hideContents' %>
-			</li>
-			<li>
-				<%= link_to 'Information', '#', id: 'hideInfo' %>
-			</li>
-	</ul>
-</div>
 <div id="projectBox" class="well">
 	<p><h3><%= best_in_place @project, :name %><sub><i class="icon-pencil"></i></sub></h3></p>
-	<div class="btn-group btn-block">
-		<a class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" href="#">
-			Contribute to Project
-			<span class="caret"></span>
-		</a>
-		<ul class="dropdown-menu">
-			<li>
-				<a href="#newBlueprint" role="button" class="" data-toggle="modal">Upload Blueprint</a> 
-			</li>
-			<li>
-				<a href="#newDiscussion" role="button" class="" data-toggle="modal">Start Discussion</a>
-			</li>
-		</ul>
-	</div>
+	
 	<div id="participant-list">
 		<br>
 		<strong>Participants:</strong>
-		<a href="#newParticipant" role="button" class="btn btn-small btn-primary" data-toggle="modal">Add Participant</a>
+		
 		<ol>
 			<% @project.users.each do |user| %>
 				<li><%= link_to user.name, user_path(user.id) %></li>
@@ -56,6 +21,6 @@
 		<li><strong>Add Note</strong> capability. Project or blueprint specific.</li>
 		<li>Click the note tags to add or edit them. <strong>In-place-editing</strong></li>
 	</ul>
-	<a href="#read-review" role="button" class="btn" data-toggle="modal">Preview</a>
+	
 </div>
 
