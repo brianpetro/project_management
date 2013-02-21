@@ -10,7 +10,9 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<td><strong>Group Members</strong><%= link_to 'Add Member', new_group_member_path(@group, :group_id => @group.id), :class => 'btn' %></td>
+					<td>
+						<strong>Group Members</strong><a href="#newMember" role="button" class="btn" data-toggle="modal">Add Member</a>
+					</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -31,5 +33,16 @@
 			<li><strong>Firms</strong> can use groups to easily associate employees with projects.</li>
 			<li>Groups are agile and can be used however end user finds most useful.</li>
 		</ul>
+	</div>
+</div>
+
+<!-- Note Modal -->
+<div id="newMember" class="modal hide fade alert alert-info well" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Add Member</h3>
+	</div>
+	<div class="modal-body" style="max-height:450px;">
+		<%= render 'members/form' %>
 	</div>
 </div>
