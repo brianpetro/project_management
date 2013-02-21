@@ -19,7 +19,7 @@ class CitiesController < ApplicationController
   # GET /cities/1.json
   def show
     @city = City.find(params[:id])
-
+		@seal = Seal.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @city }
