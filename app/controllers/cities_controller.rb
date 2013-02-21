@@ -7,6 +7,7 @@ class CitiesController < ApplicationController
   # GET /cities.json
   def index
     @cities = City.all
+    @city = City.new
 
     respond_to do |format|
       format.html # index.html.erb

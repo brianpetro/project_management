@@ -27,7 +27,7 @@
 		</table>
 
 		<% if current_user.has_role? :admin %>
-			<%= link_to 'New City', new_city_path, :class => 'btn btn-mini' %>
+			<a href="#newCity" role="button" class="btn btn-mini btn-primary" data-toggle="modal">New City</a>
 		<% end %>
 	</div>
 
@@ -40,6 +40,17 @@
 			<li>This page can feature announcements from the relevant cities.</li>
 			<li>We have the option to pre populate city information.</li>
 		</ul>
+	</div>
+</div>
+
+<!-- New City Modal -->
+<div id="newCity" class="modal hide fade alert alert-info well" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Create City</h3>
+	</div>
+	<div class="modal-body" style="max-height:450px;">
+		<%= render 'cities/form' %>
 	</div>
 </div>
 
