@@ -35,7 +35,7 @@
 
 	<div class="span4">
 		<div class="well">
-			<%= link_to 'Seal and Submit to this City', new_city_seal_path(@city), :class => 'btn btn-block btn-primary' %>
+			<a href="#newSeal" role="button" class="btn btn-block btn-primary" data-toggle="modal">Seal and Submit to this City</a>
 			<h3>City Page</h3>
 			<ul>		
 				<li>First city reviewer verified and added internally by A&E Halo.</li>
@@ -51,7 +51,7 @@
 <div id="newSeal" class="modal hide fade alert alert-info well" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background-color:#cccccc;">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">Add Note</h3>
+		<h3 id="myModalLabel">Seal</h3>
 	</div>
 	<div class="modal-body" style="max-height:450px;">
 		<%= render 'seals/form' %>
