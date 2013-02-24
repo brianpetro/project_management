@@ -50,7 +50,17 @@
 		<h3 id="myModalLabel">Create City</h3>
 	</div>
 	<div class="modal-body" style="max-height:450px;">
-		<%= render 'cities/form' %>
+		<div ng-controller="CityCtrl">
+			<form ng-submit="addCity()">
+				<input type="text" ng-model="newCity.name"><br>
+				<input type="submit" value="Add {{newCity.name}}" class="btn btn-primary">
+			</form>
+			<ul class="unstyled">
+				<li ng-repeat="city in cities">
+					{{city.name}}
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
 
