@@ -1,8 +1,7 @@
 class CitiesController < ApplicationController
-
+	skip_before_filter :verify_authenticity_token, :only => [:create] #Temp fix so AngularJS updates model
   load_and_authorize_resource
-
-
+	respond_to :json
   # GET /cities
   # GET /cities.json
   def index
