@@ -15,10 +15,10 @@
 //= require jquery.purr
 //= require best_in_place
 //= require jquery-ui
-//= require angular
-//= require angular-resource
 //= require bootstrap-dropdown
 //= require bootstrap-modal
+//= require angular
+//= require angular-resource
 //= require_tree .
 
 
