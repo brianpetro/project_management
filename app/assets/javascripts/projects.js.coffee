@@ -19,3 +19,17 @@ jQuery ->
 		
 	$('#hideProjectBox').click ->
 		$('#projectBox').toggle 400
+		
+app = angular.module("Angular", ["ngResource"])
+app.factory "Project", ["$resource", ($resource) ->
+	$resource("/projects/:id", {id: "@id"}, {update: {method: "PUT"}})
+]
+
+@ProjectCtrl = ["$scope", "Project", ($scope, Project) ->
+	$scope.projects = Project.query()
+	
+	$scope.addProject = ->
+		project = Project.save($scope.newProject)
+		$scope.projects.push(project)
+		$scope.newProject = {}
+]
