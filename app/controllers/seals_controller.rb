@@ -1,7 +1,6 @@
 class SealsController < ApplicationController
 	skip_before_filter :verify_authenticity_token, :only => [:create] #Temp fix so AngularJS updates model
 	before_filter :get_city
-
   load_and_authorize_resource
 
 
