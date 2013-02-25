@@ -38,7 +38,13 @@
 			<h3 id="myModalLabel">Create Project</h3>
 		</div>
 		<div class="modal-body" style="max-height:450px;">
-			<%= render 'projects/form' %>
+			<div ng-controller="ProjectCtrl">
+			<form ng-submit="addProject()">
+					<input type="number" ng-model="newProject.name">
+					<input type="number" ng-model="newProject.city_id">
+					<input type="submit" value="Add {{newProject.name}}" class="btn btn-primary">
+				</form>
+			</div>
 		</div>
 	</div>
 
