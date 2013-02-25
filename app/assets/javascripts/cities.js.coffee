@@ -22,6 +22,7 @@ app.factory "Seal", ["$resource", ($resource) ->
 
 @SealCtrl = ["$scope", "Seal", ($scope, Seal) ->
 	$scope.seals = Seal.query()
+	$scope.city_id = Seal.city_id
 	
 	$scope.addSeal = ->
 		seal = Seal.save($scope.newSeal)
