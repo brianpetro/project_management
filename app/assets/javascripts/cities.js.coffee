@@ -15,3 +15,16 @@ app.factory "City", ["$resource", ($resource) ->
 		$scope.cities.push(city)
 		$scope.newCity = {}
 ]
+
+app.factory "Seal", ["$resource", ($resource) ->
+	$resource("/cities/:city_id/seals/:id", {city_id: "@city_id", id: "@id"}, {update: {method: "PUT"}})
+]
+
+@SealCtrl = ["$scope", "Seal", ($scope, Seal) ->
+	$scope.seals = Seal.query()
+	
+	$scope.addSeal = ->
+		seal = Seal.save($scope.newSeal)
+		$scope.seals.push(seal)
+		$scope.newSeal = {}
+]
