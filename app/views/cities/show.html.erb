@@ -54,6 +54,17 @@
 		<h3 id="myModalLabel">Seal</h3>
 	</div>
 	<div class="modal-body" style="max-height:450px;">
-		<%= render 'seals/form' %>
+		<div ng-controller="SealCtrl">
+			<form ng-submit="addSeal()">
+				<input type="text" ng-model="newSeal.project_id"><br>
+				<input type="text" ng-model="newSeal.city_id"><br>
+				<input type="submit" value="Add {{newSeal.project_id}}" class="btn btn-primary">
+			</form>
+			<ul class="unstyled">
+				<li ng-repeat="seal in seals">
+					{{seal.project_id}}
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
