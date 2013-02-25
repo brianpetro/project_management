@@ -57,7 +57,7 @@
 		<div ng-controller="SealCtrl">
 			<form ng-submit="addSeal()">
 				<input type="text" ng-model="newSeal.project_id"><br>
-				<input type="text" ng-model="newSeal.city_id"><br>
+				<input type="text" ng-model="newSeal.city_id" ng-init="value='<%= @city.id %>'" value="{{value}}"><br>
 				<input type="submit" value="Add {{newSeal.project_id}}" class="btn btn-primary">
 			</form>
 			<ul class="unstyled">
