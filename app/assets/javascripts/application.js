@@ -19,7 +19,7 @@
 //= require bootstrap-modal
 //= require angular
 //= require angular-resource
-//= require angular-ui
+//= require angular-ui-bootstrap
 //= require_tree .
 
 
