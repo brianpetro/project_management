@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
+	skip_before_filter :verify_authenticity_token, :only => [:create] #Temp fix so AngularJS updates model
   load_and_authorize_resource
-
-
   # GET /projects
   # GET /projects.json
   def index
