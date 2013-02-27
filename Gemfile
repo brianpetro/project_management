@@ -18,6 +18,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'angularjs-rails'
   gem 'angular-ui-bootstrap-rails'
+  gem 'angularjs-rails-resource'
 end
 
 gem 'jquery-ui-rails'
