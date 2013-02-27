@@ -2,29 +2,19 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-app = angular.module("Angular", ["ngResource"])
-app.factory "City", ["$resource", ($resource) ->
-	$resource("/cities/:id", {id: "@id"}, {update: {method: "PUT"}})
-]
+app = angular.module("aehalo", ['rails'])
 
-@CityCtrl = ["$scope", "City", ($scope, City) ->
-	$scope.cities = City.query()
-	
-	$scope.addCity = ->
-		city = City.save($scope.newCity)
-		$scope.cities.push(city)
-		$scope.newCity = {}
-]
-
-app.factory "Seal", ["$resource", ($resource) ->
-	$resource("/cities/:city_id/seals/:id", {city_id: "@city_id", id: "@id"}, {update: {method: "PUT"}})
+app.factory "Seal", ["railsResourceFactory", "$http", ($resource, $http) ->
+  $resource url: "/cities/{{city_id}}/seals/{{id}}", name: 'seal'
 ]
 
 @SealCtrl = ["$scope", "Seal", ($scope, Seal) ->
-	$scope.seals = Seal.query()
-	
-	$scope.addSeal = ->
-		seal = Seal.save($scope.newSeal)
-		$scope.seals.push(seal)
-		$scope.newSeal = {}
+  $scope.city_id = get_city()
+
+  $scope.seals = Seal.query(city_id: $scope.city_id)
+
+  $scope.addSeal = ->
+    $scope.newSeal.city_id = $scope.city_id
+    seal = new Seal($scope.newSeal).create()
+    $scope.newSeal = {}
 ]
