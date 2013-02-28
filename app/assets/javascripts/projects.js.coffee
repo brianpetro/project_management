@@ -33,3 +33,32 @@ app.factory "Project", ["$resource", ($resource) ->
 		$scope.projects.push(project)
 		$scope.newProject = {}
 ]
+
+angular.module("aehalo", []).directive "draggable", ($document) ->
+  startX = 0
+  startY = 0
+  x = 0
+  y = 0
+  (scope, element, attr) ->
+    mousemove = (event) ->
+      y = event.screenY - startY
+      x = event.screenX - startX
+      element.css
+        top: y + "px"
+        left: x + "px"
+
+    mouseup = ->
+      $document.unbind "mousemove", mousemove
+      $document.unbind "mouseup", mouseup
+    element.css
+      position: "relative"
+      border: "1px solid red"
+      backgroundColor: "lightgrey"
+      cursor: "pointer"
+
+    element.bind "mousedown", (event) ->
+      startX = event.screenX - x
+      startY = event.screenY - y
+      $document.bind "mousemove", mousemove
+      $document.bind "mouseup", mouseup
+
