@@ -17,9 +17,9 @@
 //= require jquery-ui
 //= require bootstrap-dropdown
 //= require bootstrap-modal
-//= require angular
+//= require angular.
+//= require angular-resource
 //= require angular-ui-bootstrap
-//= require angularjs/rails/resource
 //= require_tree .
 
 

@@ -20,7 +20,7 @@ jQuery ->
 	$('#hideProjectBox').click ->
 		$('#projectBox').toggle 400
 		
-app = angular.module("Angular", ["ngResource"])
+app = angular.module("aehalo", ["ngResource"])
 app.factory "Project", ["$resource", ($resource) ->
 	$resource("/projects/:id", {id: "@id"}, {update: {method: "PUT"}})
 ]
@@ -57,7 +57,6 @@ angular.module("aehalo", []).directive "draggable", ($document) ->
       border: "1px solid red"
       backgroundColor: "lightgrey"
       cursor: "pointer"
-
     element.bind "mousedown", (event) ->
       startX = event.screenX - x
       startY = event.screenY - y
