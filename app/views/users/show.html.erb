@@ -40,7 +40,7 @@
 		<div class="modal-body" style="max-height:450px;">
 			<div ng-controller="ProjectCtrl">
 			<form ng-submit="addProject()">
-					<input type="number" ng-model="newProject.name">Project Name<br>
+					<input type="text" ng-model="newProject.name">Project Name<br>
 					<input type="number" ng-model="newProject.manager_id" ng-init="value='<%= @user.id %>'" value="{{value}}" style="display:none;">Project Manager(Hidden)<br>
 					<input type="number" ng-model="newProject.city_id">City<br>
 					<input type="submit" value="Add {{newProject.name}}" class="btn btn-primary">
