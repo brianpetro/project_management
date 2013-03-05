@@ -34,9 +34,8 @@ app.factory "Project", ["$resource", ($resource) ->
 		$scope.newProject = {}
 ]
 
-
 # Angular Drag Components RE-uses vars from previous drag, bugging out the dragging
-angular.module("aehalo", []).directive "draggable", ($document) ->
+app.directive "draggable", ($document) ->
   startX = 0
   startY = 0
   x = 0
@@ -62,4 +61,7 @@ angular.module("aehalo", []).directive "draggable", ($document) ->
       startY = event.screenY - y
       $document.bind "mousemove", mousemove
       $document.bind "mouseup", mouseup
+      
+
+
 
