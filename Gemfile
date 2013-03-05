@@ -18,7 +18,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'angularjs-rails'
   gem 'angular-ui-bootstrap-rails'
-  gem 'angularjs-rails-resource'
+  gem "bootstrap-sass", ">= 2.1.1.0"
+  gem 'bootswatch-rails'
 end
 
 gem 'jquery-ui-rails'
@@ -34,7 +35,6 @@ end
 
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
-gem "bootstrap-sass", ">= 2.1.1.0"
 gem "devise", ">= 2.1.2"
 gem "cancan", ">= 1.6.8"
 gem "rolify", ">= 3.2.0"
@@ -46,15 +46,8 @@ gem "figaro", ">= 0.5.0"
 
 gem "carrierwave"
 gem "fog"
-
 gem 'acts-as-taggable-on'
-
 gem 'best_in_place'
-
-gem 'bootswatch-rails'
-
 gem "github_api"
-
 gem 'newrelic_rpm'
-
 gem 'prawn'
